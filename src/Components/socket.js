@@ -1,0 +1,1 @@
+export const socket = new WebSocket(`ws://64.227.107.166/wb`)
