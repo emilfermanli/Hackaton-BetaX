@@ -2,6 +2,7 @@ body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  background-color: #192965;
 }
 
 ul {
@@ -10,6 +11,26 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+#status-table {
+  padding: 30px 30px;
+  height: 400px;
+  -webkit-box-shadow: 0px 0px 23px -1px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: 0px 0px 23px -1px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 23px -1px rgba(0, 0, 0, 0.68);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.thermometr {
+  padding: 30px 30px;
+  height: 400px;
+  -webkit-box-shadow: 0px 0px 23px -1px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: 0px 0px 23px -1px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 23px -1px rgba(0, 0, 0, 0.68);
+  border-radius: 10px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
