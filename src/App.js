@@ -4,6 +4,7 @@ import axios from "axios"
 
 function App() {
 
+    console.log("test")
 
     const [mss] = useState({
         Message: "hi there"
