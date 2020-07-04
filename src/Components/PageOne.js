@@ -19,9 +19,6 @@ function PageOne(props) {
         console.log(data.AirTemperature)
     }
 
-
-    // console.log(pageData.AirTemperature)
-
     return (
         <div>
             <div className="header d-flex align-items-center text-white">
@@ -35,12 +32,12 @@ function PageOne(props) {
                         <div className="big-box pt-3">
                             <div className="box">
                                 <Row >
-                                    {/* <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart data={props} />
+                                    <Col lg={7} sm={12} md={12} xs={12}>
+                                        <DataChart data={data} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart data={props} />
-                                    </Col> */}
+                                        <ApexChart data={data} />
+                                    </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">
                                             <Col lg={2} className="text-center">
@@ -48,12 +45,12 @@ function PageOne(props) {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={30}
+                                                    progress={data === null ? 0 : data.WaterAcidity}
                                                     size={15}
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
                                                 />
-                                                {/* {!props.data.WaterAcidity ? 0 : props.data.WaterAcidity} */}
+
                                                 <h6>Suyun turşuluğu (pH)</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
@@ -61,10 +58,10 @@ function PageOne(props) {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={30}
+                                                    progress={data === null ? 0 : data.SalinityOfWater}
                                                     showPercentageSymbol={false}
                                                 />
-                                                {/* {!props.data.SalinityOfWater ? 0 : props.data.SalinityOfWater} */}
+
                                                 <h6>Suyun duzluluğu</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
@@ -72,11 +69,11 @@ function PageOne(props) {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={30}
+                                                    progress={data === null ? 0 : data.WaterTemperature}
                                                     progressColor="#d92027"
                                                     showPercentageSymbol={false}
                                                 />
-                                                {/* {!props.data.WaterTemperature ? 0 : props.data.WaterTemperature} */}
+
                                                 <h6>Suyun temperaturu</h6>
                                             </Col>
                                             <Col lg={6}>
