@@ -13,7 +13,8 @@ function PageOne(props) {
     }, [props])
 
 
-    console.log(props.data.WaterAcidity)
+    console.log(props)
+    console.log(props.data)
 
     return (
         <div>
@@ -41,7 +42,7 @@ function PageOne(props) {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={props.data.WaterAcidity}
+                                                    progress={30}
                                                     size={15}
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
