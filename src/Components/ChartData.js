@@ -91,7 +91,7 @@ function DataChart(props) {
 
     console.log(state.series)
     console.log(state.series[0])
-    console.log(state.series.data)
+    console.log(state.series[0].data)
 
     return (
         <div id="chart">
