@@ -92,10 +92,11 @@ function DataChart(props) {
     console.log(state.series)
     console.log(state.series[0])
     console.log(state.series[0].data)
+    console.log(state.options.xaxis.categories)
 
     return (
         <div id="chart">
-            <ReactApexChart options={state.options} series={state.series[0].data} type="bar" height={350} />
+            <ReactApexChart options={state.options.xaxis.categories} series={state.series[0].data} type="bar" height={350} />
         </div>
     )
 }
