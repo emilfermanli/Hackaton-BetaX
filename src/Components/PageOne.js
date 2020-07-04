@@ -33,11 +33,12 @@ function PageOne({ data }) {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={data.WaterAcidity ? data.WaterAcidity : 0}
+                                                    progress={30}
                                                     size={15}
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
                                                 />
+                                                {/* data.WaterAcidity ? data.WaterAcidity : 0 */}
                                                 <h6>Suyun turşuluğu (pH)</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
