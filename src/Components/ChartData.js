@@ -6,6 +6,7 @@ import ReactApexChart from "react-apexcharts"
 class DataChart extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props)
 
         this.state = {
             series: [{

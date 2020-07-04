@@ -10,15 +10,6 @@ function PageOne(props) {
 
     const { data } = props
 
-    console.log(data)
-
-    if (data === null) {
-        console.log("data yoxdu")
-    } else {
-        console.log("data var")
-        console.log(data.AirTemperature)
-    }
-
     return (
         <div>
             <div className="header d-flex align-items-center text-white">
