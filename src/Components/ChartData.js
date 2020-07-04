@@ -16,7 +16,7 @@ function DataChart(props) {
     const [chartData] = useState(
         {
             series: [{
-                name: 'Servings',
+                name: 'Nəticə',
                 data: [
                     data === null ? 0 : parseInt(data.WaterLevel),
                     data === null ? 0 : parseInt(data.FlowRate),
@@ -91,9 +91,10 @@ function DataChart(props) {
     )
 
     console.log(chartData.series)
+
     return (
         <div id="chart">
-            <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={350} />
+            <ReactApexChart options={chartData.options} series={chartData.data.series} type="bar" height={350} />
         </div>
     )
 }
