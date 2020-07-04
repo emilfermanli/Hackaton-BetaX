@@ -15,12 +15,13 @@ function App() {
 
     useEffect(() => {
         socket.onopen = () => {
-            console.log(`connected`)
+            socket.send(JSON.stringify(mss))
+            console.log("send -->" + JSON.stringify(mss))
+
         }
         socket.onmessage = (event) => {
-            socket.send({ "Message": "hi there" })
-            socket.send(JSON.stringify(mss))
-            console.log("send -->" + { "Message": "hi there" })
+            console.log(event)
+            console.log(JSON.parse(event))
             console.log("received -->" + event)
         }
 
