@@ -43,7 +43,7 @@ function PageOne({ data }) {
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
                                                 />
-                                                {/* data.WaterAcidity ? data.WaterAcidity : 0 */}
+                                                <p>text - {data.WaterAcidity ? data.WaterAcidity : 0}</p>
                                                 <h6>Suyun turşuluğu (pH)</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">

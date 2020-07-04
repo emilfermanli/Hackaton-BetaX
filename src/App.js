@@ -14,7 +14,6 @@ function App() {
             console.log("connected to websocket")
         }
         socket.onmessage = (event) => {
-            console.log(event.data)
             setData(JSON.parse(event.data))
         }
 
