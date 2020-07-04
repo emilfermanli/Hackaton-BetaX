@@ -21,17 +21,14 @@ function PageOne() {
             <Container fluid={true}>
                 <Row className="pt-3">
                     <Col lg={10}>
-                        <div className="big-box">
-                            <div className="box-header">
-                                <h4>Suyun Tərkibi</h4>
-                            </div>
+                        <div className="big-box pt-3">
                             <div className="box">
                                 <Row >
-                                    <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart />
-                                    </Col>
                                     <Col lg={7} sm={12} md={12} xs={12}>
                                         <DataChart />
+                                    </Col>
+                                    <Col lg={5} sm={12} md={12} xs={12}>
+                                        <ApexChart />
                                     </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">

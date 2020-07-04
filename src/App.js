@@ -9,11 +9,10 @@ import PageOne from './Components/PageOne'
 
 function App() {
 
-    const [mss] = useState({
-        Message: "hi there"
-    })
 
+    const [data, setData] = useState()
 
+    console.log(data)
     // const [celce, setCelce] = useState(0)
 
     useEffect(() => {
@@ -21,7 +20,7 @@ function App() {
             console.log("connected to websocket")
         }
         socket.onmessage = (event) => {
-            console.log(event.data)
+            console.log(JSON.stringify(event.data))
         }
 
         socket.onerror = (error) => {
@@ -31,7 +30,7 @@ function App() {
         axios.get(`http://64.227.107.166/data`)
             .then(res => {
                 const persons = res.data;
-                console.log(persons.data)
+                setData(persons.data)
                 console.log(res)
             })
 
@@ -40,7 +39,7 @@ function App() {
                 console.log('disconnected')
             }
         }
-    }, [mss])
+    }, [data])
 
 
 

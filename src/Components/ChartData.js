@@ -8,13 +8,11 @@ class DataChart extends React.Component {
         super(props);
 
         this.state = {
-
             series: [{
                 name: 'Servings',
                 data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65]
             }],
             options: {
-
                 chart: {
                     height: 350,
                     type: 'bar',
@@ -25,9 +23,7 @@ class DataChart extends React.Component {
                         endingShape: 'rounded'
                     }
                 },
-                dataLabels: {
-                    enabled: false
-                },
+
                 stroke: {
                     width: 2
                 },
@@ -72,8 +68,6 @@ class DataChart extends React.Component {
                     },
                 }
             },
-
-
         };
     }
 
@@ -89,5 +83,6 @@ class DataChart extends React.Component {
         );
     }
 }
+
 
 export default DataChart
