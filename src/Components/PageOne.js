@@ -30,10 +30,10 @@ function PageOne(props) {
                             <div className="box">
                                 <Row >
                                     <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart data={props} />
+                                        <DataChart data={props.data} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart data={props} />
+                                        <ApexChart data={props.data} />
                                     </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">
@@ -47,7 +47,7 @@ function PageOne(props) {
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
                                                 />
-                                                {/* {data.WaterAcidity ? data.WaterAcidity : 0} */}
+                                                {props.data.WaterAcidity ? props.data.WaterAcidity : 0}
                                                 <h6>Suyun turşuluğu (pH)</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
@@ -58,7 +58,7 @@ function PageOne(props) {
                                                     progress={30}
                                                     showPercentageSymbol={false}
                                                 />
-                                                {/* data.SalinityOfWater ? data.SalinityOfWater : 0 */}
+                                                {props.data.SalinityOfWater ? props.data.SalinityOfWater : 0}
                                                 <h6>Suyun duzluluğu</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
@@ -70,7 +70,7 @@ function PageOne(props) {
                                                     progressColor="#d92027"
                                                     showPercentageSymbol={false}
                                                 />
-                                                {/* data.WaterTemperature ? data.WaterTemperature : 0 */}
+                                                {props.data.WaterTemperature ? props.data.WaterTemperature : 0}
                                                 <h6>Suyun temperaturu</h6>
                                             </Col>
                                             <Col lg={6}>
