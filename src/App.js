@@ -4,7 +4,7 @@ import axios from "axios"
 import { Container, Col, Table, Row } from "reactstrap"
 import Thermometer from 'react-thermometer-component'
 import DonutChart from 'react-donut-chart';
-
+import ReactStoreIndicator from 'react-score-indicator'
 
 function App() {
 
@@ -103,8 +103,8 @@ function App() {
                                 </Col>
                                 <Col lg={8}>
                                     <DonutChart
-                                        height="300"
-                                        width="350"
+                                        height={300}
+                                        width={350}
                                         data={[{
                                             label: 'Suyun çirkliliyi',
                                             value: 25,
@@ -132,12 +132,30 @@ function App() {
                                         {
                                             label: 'Sulfat',
                                             value: 20,
-                                        },
-
-                                        {
-                                            label: '',
-                                            value: 75,
-                                        }]} />
+                                        }
+                                        ]} />
+                                </Col>
+                            </Row>
+                        </div>
+                    </Col>
+                </Row>
+                <Row className="mt-5">
+                    <Col lg={6}>
+                        <div id="status-table">
+                            Suyun yararlılığı
+                        </div>
+                    </Col>
+                    <Col lg={6}>
+                        <div className="thermometr">
+                            <Col lg={12}>
+                                <h4 className="mb-5">Water Status</h4>
+                            </Col>
+                            <Row>
+                                <Col lg={12}>
+                                    <ReactStoreIndicator
+                                        value={30}
+                                        maxValue={100}
+                                    />
                                 </Col>
                             </Row>
                         </div>
