@@ -12,18 +12,18 @@ class DataChart extends React.Component {
             series: [{
                 name: 'Servings',
                 data: [
-                    !props.data === null ? this.props.WaterLevel : 0,
-                    !props.data === null ? this.props.FlowRate : 0,
-                    !props.data === null ? this.props.WaterPermeability : 0,
-                    !props.data === null ? this.props.WaterOxygen : 0,
-                    !props.data === null ? this.props.Blurring : 0,
-                    !props.data === null ? this.props.Fikosin : 0,
-                    !props.data === null ? this.props.SuspendedSolids : 0,
-                    !props.data === null ? this.props.Ammonia : 0,
-                    !props.data === null ? this.props.NitrogenDioxide : 0,
-                    !props.data === null ? this.props.HardnessOfTheWater : 0,
-                    !props.data === null ? this.props.ChemicalOxygenDemand : 0,
-                    !props.data === null ? this.props.BiochemicalOxygenDemand : 0]
+                    props.data === null ? 0 : props.WaterLevel,
+                    props.data === null ? 0 : props.FlowRate,
+                    props.data === null ? 0 : props.WaterPermeability,
+                    props.data === null ? 0 : props.WaterOxygen,
+                    props.data === null ? 0 : props.Blurring,
+                    props.data === null ? 0 : props.Fikosin,
+                    props.data === null ? 0 : props.SuspendedSolids,
+                    props.data === null ? 0 : props.Ammonia,
+                    props.data === null ? 0 : props.NitrogenDioxide,
+                    props.data === null ? 0 : props.HardnessOfTheWater,
+                    props.data === null ? 0 : props.ChemicalOxygenDemand,
+                    props.data === null ? 0 : props.BiochemicalOxygenDemand]
             }],
             options: {
                 chart: {
