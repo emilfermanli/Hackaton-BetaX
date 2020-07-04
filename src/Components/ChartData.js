@@ -9,7 +9,7 @@ function DataChart(props) {
         console.log("data yoxdu")
     } else {
         console.log("data var")
-        console.log(data.WaterLevel)
+        console.log(typeof data.WaterLevel)
     }
 
 
@@ -18,7 +18,7 @@ function DataChart(props) {
             series: [{
                 name: 'Servings',
                 data: [
-                    data === null ? 0 : data.WaterLevel,
+                    data === null ? 0 : Number(data.WaterLevel),
                     data === null ? 0 : data.FlowRate,
                     data === null ? 0 : data.WaterPermeability,
                     data === null ? 0 : data.WaterOxygen,
