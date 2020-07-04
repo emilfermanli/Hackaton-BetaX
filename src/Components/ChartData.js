@@ -1,35 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactApexChart from "react-apexcharts"
 
+function DataChart(props) {
+
+    const { data } = props
 
 
-class DataChart extends React.Component {
-    constructor(props) {
-        super(props);
+    console.log(data)
 
-        if (props.data === null) {
-            console.log("data yoxdu")
-        } else {
-            console.log("data var")
-            console.log(props.data.WaterLevel)
-        }
-
-        this.state = {
+    const [chartData] = useState(
+        {
             series: [{
                 name: 'Servings',
                 data: [
-                    props.data === null ? 0 : props.data.WaterLevel,
-                    props.data === null ? 0 : props.data.FlowRate,
-                    props.data === null ? 0 : props.data.WaterPermeability,
-                    props.data === null ? 0 : props.data.WaterOxygen,
-                    props.data === null ? 0 : props.data.Blurring,
-                    props.data === null ? 0 : props.data.Fikosin,
-                    props.data === null ? 0 : props.data.SuspendedSolids,
-                    props.data === null ? 0 : props.data.Ammonia,
-                    props.data === null ? 0 : props.data.NitrogenDioxide,
-                    props.data === null ? 0 : props.data.HardnessOfTheWater,
-                    props.data === null ? 0 : props.data.ChemicalOxygenDemand,
-                    props.data === null ? 0 : props.data.BiochemicalOxygenDemand]
+                    data === null ? 0 : data.WaterLevel,
+                    data === null ? 0 : data.FlowRate,
+                    data === null ? 0 : data.WaterPermeability,
+                    data === null ? 0 : data.WaterOxygen,
+                    data === null ? 0 : data.Blurring,
+                    data === null ? 0 : data.Fikosin,
+                    data === null ? 0 : data.SuspendedSolids,
+                    data === null ? 0 : data.Ammonia,
+                    data === null ? 0 : data.NitrogenDioxide,
+                    data === null ? 0 : data.HardnessOfTheWater,
+                    data === null ? 0 : data.ChemicalOxygenDemand,
+                    data === null ? 0 : data.BiochemicalOxygenDemand]
             }],
             options: {
                 chart: {
@@ -87,21 +82,17 @@ class DataChart extends React.Component {
                     },
                 }
             },
-        };
-    }
-
-
-    render() {
-        return (
-
-            <div id="chart">
-                <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
-            </div>
-
-
-        );
-    }
+        }
+    )
+    return (
+        <div id="chart">
+            <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={350} />
+        </div>
+    )
 }
+
+
+
 
 
 export default DataChart
