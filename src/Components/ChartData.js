@@ -6,24 +6,24 @@ import ReactApexChart from "react-apexcharts"
 class DataChart extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props)
+        console.log(props.data)
 
         this.state = {
             series: [{
                 name: 'Servings',
                 data: [
-                    this.props.WaterLevel ? this.props.WaterLevel : 0,
-                    this.props.FlowRate ? this.props.FlowRate : 0,
-                    this.props.WaterPermeability ? this.props.WaterPermeability : 0,
-                    this.props.WaterOxygen ? this.props.WaterOxygen : 0,
-                    this.props.Blurring ? this.props.Blurring : 0,
-                    this.props.Fikosin ? this.props.Fikosin : 0,
-                    this.props.SuspendedSolids ? this.props.SuspendedSolids : 0,
-                    this.props.Ammonia ? this.props.Ammonia : 0,
-                    this.props.NitrogenDioxide ? this.props.NitrogenDioxide : 0,
-                    this.props.HardnessOfTheWater ? this.props.HardnessOfTheWater : 0,
-                    this.props.ChemicalOxygenDemand ? this.props.ChemicalOxygenDemand : 0,
-                    this.props.BiochemicalOxygenDemand ? this.props.BiochemicalOxygenDemand : 0]
+                    !this.props.data === null ? this.props.WaterLevel : 0,
+                    !this.props.data === null ? this.props.FlowRate : 0,
+                    !this.props.data === null ? this.props.WaterPermeability : 0,
+                    !this.props.data === null ? this.props.WaterOxygen : 0,
+                    !this.props.data === null ? this.props.Blurring : 0,
+                    !this.props.data === null ? this.props.Fikosin : 0,
+                    !this.props.data === null ? this.props.SuspendedSolids : 0,
+                    !this.props.data === null ? this.props.Ammonia : 0,
+                    !this.props.data === null ? this.props.NitrogenDioxide : 0,
+                    !this.props.data === null ? this.props.HardnessOfTheWater : 0,
+                    !this.props.data === null ? this.props.ChemicalOxygenDemand : 0,
+                    !this.props.data === null ? this.props.BiochemicalOxygenDemand : 0]
             }],
             options: {
                 chart: {
