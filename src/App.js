@@ -20,7 +20,8 @@ function App() {
         socket.onmessage = (event) => {
             socket.send({ "Message": "hi there" })
             socket.send(JSON.stringify(mss))
-            console.log(event)
+            console.log("send -->" + { "Message": "hi there" })
+            console.log("received -->" + event)
         }
 
         socket.onerror = (error) => {
