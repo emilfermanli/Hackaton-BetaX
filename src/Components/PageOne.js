@@ -15,7 +15,7 @@ function PageOne(props) {
     }, [props, pageData])
 
 
-    console.log(pageData.AirTemperature)
+    // console.log(pageData.AirTemperature)
 
     return (
         <div>
@@ -31,10 +31,10 @@ function PageOne(props) {
                             <div className="box">
                                 <Row >
                                     <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart data={props} />
+                                        <DataChart data={pageData} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart data={props} />
+                                        <ApexChart data={pageData} />
                                     </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">
