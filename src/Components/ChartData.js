@@ -12,18 +12,18 @@ class DataChart extends React.Component {
             series: [{
                 name: 'Servings',
                 data: [
-                    !this.props.data === null ? this.props.WaterLevel : 0,
-                    !this.props.data === null ? this.props.FlowRate : 0,
-                    !this.props.data === null ? this.props.WaterPermeability : 0,
-                    !this.props.data === null ? this.props.WaterOxygen : 0,
-                    !this.props.data === null ? this.props.Blurring : 0,
-                    !this.props.data === null ? this.props.Fikosin : 0,
-                    !this.props.data === null ? this.props.SuspendedSolids : 0,
-                    !this.props.data === null ? this.props.Ammonia : 0,
-                    !this.props.data === null ? this.props.NitrogenDioxide : 0,
-                    !this.props.data === null ? this.props.HardnessOfTheWater : 0,
-                    !this.props.data === null ? this.props.ChemicalOxygenDemand : 0,
-                    !this.props.data === null ? this.props.BiochemicalOxygenDemand : 0]
+                    !props.data === null ? this.props.WaterLevel : 0,
+                    !props.data === null ? this.props.FlowRate : 0,
+                    !props.data === null ? this.props.WaterPermeability : 0,
+                    !props.data === null ? this.props.WaterOxygen : 0,
+                    !props.data === null ? this.props.Blurring : 0,
+                    !props.data === null ? this.props.Fikosin : 0,
+                    !props.data === null ? this.props.SuspendedSolids : 0,
+                    !props.data === null ? this.props.Ammonia : 0,
+                    !props.data === null ? this.props.NitrogenDioxide : 0,
+                    !props.data === null ? this.props.HardnessOfTheWater : 0,
+                    !props.data === null ? this.props.ChemicalOxygenDemand : 0,
+                    !props.data === null ? this.props.BiochemicalOxygenDemand : 0]
             }],
             options: {
                 chart: {
