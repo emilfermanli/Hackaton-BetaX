@@ -10,7 +10,7 @@ import PageOne from './Components/PageOne'
 function App() {
 
 
-    const [data, setData] = useState(null)
+    const [data, setData] = useState()
 
 
     useEffect(() => {
@@ -20,7 +20,6 @@ function App() {
         socket.onmessage = (event) => {
             console.log(JSON.stringify(event.data))
             console.log(event.data)
-
             setData(JSON.parse(event.data))
         }
 
@@ -31,7 +30,6 @@ function App() {
         axios.get(`http://64.227.107.166/data`)
             .then(res => {
                 const persons = res.data;
-                console.log(persons.data)
 
             })
 
