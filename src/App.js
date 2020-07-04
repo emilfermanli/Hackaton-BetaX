@@ -44,7 +44,7 @@ function App() {
 
 
 
-    // setTimeout(function () { setCelce(99) }, 3000);
+    // 
 
     return (
         <div>

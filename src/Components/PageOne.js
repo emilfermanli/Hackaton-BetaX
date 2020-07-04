@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../assets/images/logo-w.svg"
 import { Container, Row, Col } from "reactstrap"
 import ApexChart from "./Chart"
 import DataChart from "./ChartData"
+// import MiniChart from './MiniChart'
+import Circle from 'react-circle'
+
 
 function PageOne() {
+    const [celce, setCelce] = useState(0)
+
+    setTimeout(function () { setCelce(99) }, 3000);
     return (
         <div>
             <div className="header d-flex align-items-center text-white">
@@ -28,7 +34,46 @@ function PageOne() {
                                         <DataChart />
                                     </Col>
                                     <Col lg={12}>
-
+                                        <Row className="pl-2 pr-2">
+                                            <Col lg={2} className="text-center">
+                                                <Circle
+                                                    animate={true}
+                                                    animationDuration="1s"
+                                                    responsive={true}
+                                                    progress={35}
+                                                    size={15}
+                                                    progressColor="#9bdeac"
+                                                    showPercentageSymbol={false}
+                                                />
+                                                <h6>Suyun turşuluğu (pH)</h6>
+                                            </Col>
+                                            <Col lg={2} className="text-center">
+                                                <Circle
+                                                    animate={true}
+                                                    animationDuration="1s"
+                                                    responsive={true}
+                                                    progress={35}
+                                                    showPercentageSymbol={false}
+                                                />
+                                                <h6>Suyun duzluluğu</h6>
+                                            </Col>
+                                            <Col lg={2} className="text-center">
+                                                <Circle
+                                                    animate={true}
+                                                    animationDuration="1s"
+                                                    responsive={true}
+                                                    progress={30}
+                                                    progressColor="#d92027"
+                                                    showPercentageSymbol={false}
+                                                />
+                                                <h6>Suyun temperaturu</h6>
+                                            </Col>
+                                            <Col lg={6}>
+                                                <div className="p-3">
+                                                    Suyun neye yararliligi haqda melumatin oldugu yer
+                                                </div>
+                                            </Col>
+                                        </Row>
                                     </Col>
                                 </Row>
                             </div>
