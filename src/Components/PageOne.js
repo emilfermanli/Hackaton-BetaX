@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import logo from "../assets/images/logo-w.svg"
 import { Container, Row, Col } from "reactstrap"
 import ApexChart from "./Chart"
@@ -8,11 +8,8 @@ import Circle from 'react-circle'
 
 function PageOne(props) {
 
-    const [pageData, setPageData] = useState()
 
-    useEffect(() => {
-        setPageData(props.data)
-    }, [props, pageData])
+    console.log(props)
 
 
     // console.log(pageData.AirTemperature)
@@ -31,10 +28,10 @@ function PageOne(props) {
                             <div className="box">
                                 <Row >
                                     <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart data={pageData} />
+                                        <DataChart data={props} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart data={pageData} />
+                                        <ApexChart data={props} />
                                     </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">

@@ -11,7 +11,7 @@ class DataChart extends React.Component {
             series: [{
                 name: 'Servings',
                 data: [
-                    props.WaterLevel ? props.WaterLevel : 0,
+                    this.props.WaterLevel ? this.props.WaterLevel : 0,
                     this.props.FlowRate ? this.props.FlowRate : 0,
                     this.props.WaterPermeability ? this.props.WaterPermeability : 0,
                     this.props.WaterOxygen ? this.props.WaterOxygen : 0,
