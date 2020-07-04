@@ -13,7 +13,7 @@ function PageOne(props) {
     }, [props])
 
 
-    console.log(props.WaterAcidity)
+    console.log(props)
 
     return (
         <div>
