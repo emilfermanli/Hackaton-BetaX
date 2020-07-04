@@ -21,7 +21,7 @@ function App() {
             console.log("connected to websocket")
         }
         socket.onmessage = (event) => {
-            console.log(event)
+            console.log(event.data)
         }
 
         socket.onerror = (error) => {
