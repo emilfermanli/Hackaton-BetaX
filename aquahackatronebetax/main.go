@@ -5,15 +5,16 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
 	"log"
 	"net"
 	"net/http"
 	"os/exec"
+	"strings"
 	"sync"
 	"time"
-	_ "github.com/go-sql-driver/mysql"
 )
 
 var (
@@ -57,7 +58,7 @@ type Server struct {
 	ConnectedDevices map[string]*conn
 
 	// currently connected users
-	ConnectedUsers map[string]websocket.Conn
+	ConnectedUsers map[string]*websocket.Conn
 
 	repo *sql.DB
 	//handler        *handler.UserHandler
@@ -71,17 +72,16 @@ type Server struct {
 }
 
 // (repo *repo.UserRepository)
-func NewTcpServers(db * sql.DB) *Server {
+func NewTcpServers(db *sql.DB) *Server {
 	return &Server{
 
 		repo:             db,
 		ConnectedDevices: make(map[string]*conn, 1),
-		ConnectedUsers:   make(map[string]websocket.Conn, 1),
-		//gpsTrackerData:   make(map[string][]models.GpsTracker, 1),
-		//heartbeatData:    make(map[string][]models.HeartBeat, 1),
+		ConnectedUsers:   make(map[string]*websocket.Conn, 1),
+
 		debugMode: false,
 		//IdleTimeout:      resetTime,
-		MaxReadBytes: 10,
+		MaxReadBytes: 1024,
 	}
 }
 
@@ -108,11 +108,10 @@ func main() {
 	// executing
 	defer db.Close()
 
-
 	r := mux.NewRouter()
 
 	srv := NewTcpServers(db)
-	go srv.tcpServer(2299)
+	go srv.tcpServer(8080)
 
 	r.HandleFunc("/wb", srv.WbEcho).Methods("GET")
 	r.HandleFunc("/frontend", Frontend).Methods("GET")
@@ -134,7 +133,10 @@ type Response struct {
 
 func (srv *Server) WbEcho(w http.ResponseWriter, r *http.Request) {
 
-	//srv.deleteUserConnection(token.UserId)
+	if _, ok := srv.ConnectedUsers[r.RemoteAddr]; ok {
+		delete(srv.ConnectedUsers, r.RemoteAddr)
+	}
+
 	wsConn, err := upGrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err.Error())
@@ -142,8 +144,7 @@ func (srv *Server) WbEcho(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Println("started go routine of socket ")
-
-	//TODO add save and delete user
+	srv.ConnectedUsers[r.RemoteAddr] = wsConn
 
 	// not to leave null connection
 	defer func() {
@@ -169,6 +170,7 @@ func (srv *Server) WbEcho(w http.ResponseWriter, r *http.Request) {
 		err = json.Unmarshal([]byte(s), &vs)
 		if err != nil {
 			log.Println(err.Error())
+			break
 		}
 
 		fmt.Printf("%+v\n", vs)
@@ -259,6 +261,36 @@ func Api(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
+type Data struct {
+	ClientId                string
+	OwnerId                 string
+	Password                string
+	WaterLevel              string
+	WaterTemperature        string
+	FlowRate                string
+	WaterAcidity            string
+	SalinityOfWater         string
+	AirTemperature          string
+	Sodium                  string
+	Alkaline                string
+	No3                     string
+	Sulfate                 string
+	WaterPermeability       string
+	WaterOxygen             string
+	Blurring                string
+	Chlorophyll             string
+	Fikosin                 string
+	Ammonia                 string
+	SuspendedSolids         string
+	NitrogenDioxide         string
+	AmmoniumIon             string
+	HardnessOfTheWater      string
+	ChemicalOxygenDemand    string
+	BiochemicalOxygenDemand string
+	Nitrite                 string
+	Nitrate                 string
+}
+
 func (srv *Server) handleConnection(conn net.Conn) {
 
 	log.Println("connection accepted", conn.RemoteAddr())
@@ -288,10 +320,10 @@ func (srv *Server) handleConnection(conn net.Conn) {
 			}
 
 			data[i] = data2
-
+			log.Println(data2)
 			if data2 == 42 {
 				data = data[:i]
-				log.Println("* interrupt")
+				log.Println("* interrupt",string(data))
 				break
 			}
 		}
@@ -303,10 +335,58 @@ func (srv *Server) handleConnection(conn net.Conn) {
 			return
 		}
 
-		vs := `{"message":"`+ string(data) +`"}`
+		s := strings.Split(string(data), ",")
+		log.Println(s)
 
+		if len(s) < 27 {
+			log.Println("error package length is lower than acceptable")
+			return
+		}
+
+		if s[1] != "BetaXHackatrone2020" {
+			log.Println("Not allowed Owner Id")
+			return
+		}
+
+		if s[2] != "z$3\\rP?ap6Uc;3~C@>t&w'P7" || s[2] != "q`VWdA?Tghe~K6yzDsN[:$!$" {
+			log.Println("Wrong Password")
+			return
+		}
+
+		vs := Data{
+			ClientId:                s[0],
+			OwnerId:                 "",
+			Password:                "",
+			WaterLevel:              s[3],
+			WaterTemperature:        s[4],
+			FlowRate:                s[5],
+			WaterAcidity:            s[6],
+			SalinityOfWater:         s[7],
+			AirTemperature:          s[8],
+			Sodium:                  s[9],
+			Alkaline:                s[10],
+			No3:                     s[11],
+			Sulfate:                 s[12],
+			WaterPermeability:       s[13],
+			WaterOxygen:             s[14],
+			Blurring:                s[15],
+			Chlorophyll:             s[16],
+			Fikosin:                 s[17],
+			Ammonia:                 s[18],
+			SuspendedSolids:         s[19],
+			NitrogenDioxide:         s[20],
+			AmmoniumIon:             s[21],
+			HardnessOfTheWater:      s[22],
+			ChemicalOxygenDemand:    s[23],
+			BiochemicalOxygenDemand: s[24],
+			Nitrite:                 s[25],
+			Nitrate:                 s[26],
+		}
+
+		//send to user
+		log.Println(len(srv.ConnectedUsers))
 		if len(srv.ConnectedUsers) > 0 {
-			for _,v := range srv.ConnectedUsers {
+			for _, v := range srv.ConnectedUsers {
 				if err := v.WriteJSON(vs); err != nil {
 					err := v.Close()
 					if err != nil {
@@ -317,6 +397,16 @@ func (srv *Server) handleConnection(conn net.Conn) {
 			}
 		}
 
+		// perform a db.Query insert
+		insert, err := srv.repo.Query("INSERT INTO Data (data) VALUES ( ? )", data)
+
+		// if there is an error inserting, handle it
+		if err != nil {
+			log.Println(err.Error())
+		}
+
+		// be careful deferring Queries if you are using transactions
+		defer insert.Close()
 
 		log.Println("new data received -->", string(data))
 	}

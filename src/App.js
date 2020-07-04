@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { socket } from "./Components/socket"
 import axios from "axios"
-import { Container, Col, Table, Row } from "reactstrap"
-import Thermometer from 'react-thermometer-component'
-import DonutChart from 'react-donut-chart';
-import ReactStoreIndicator from 'react-score-indicator'
+// import { Container, Col, Table, Row } from "reactstrap"
+// import Thermometer from 'react-thermometer-component'
+// import DonutChart from 'react-donut-chart';
+// import ReactStoreIndicator from 'react-score-indicator'
+import PageOne from './Components/PageOne'
 
 function App() {
 
@@ -13,30 +14,31 @@ function App() {
     })
 
     useEffect(() => {
-        // socket.onopen = () => {
-        //     console.log(`connected`)
-        // }
-        // socket.onmessage = (event) => {
-        //     socket.send({ "Message": "hi there" })
-        //     socket.send(JSON.stringify(mss))
-        // }
+        socket.onopen = () => {
+            console.log(`connected`)
+        }
+        socket.onmessage = (event) => {
+            socket.send({ "Message": "hi there" })
+            socket.send(JSON.stringify(mss))
+            console.log(event)
+        }
 
-        // socket.onerror = (error) => {
-        //     console.log(error)
-        // }
+        socket.onerror = (error) => {
+            console.log(error)
+        }
 
-        // axios.get(`http://64.227.107.166/api`)
-        //     .then(res => {
-        //         const persons = res.data;
-        //         console.log(persons)
-        //         console.log(res)
-        //     })
+        axios.get(`http://64.227.107.166/api`)
+            .then(res => {
+                const persons = res.data;
+                console.log(persons)
+                console.log(res)
+            })
 
-        // return () => {
-        //     socket.onclose = () => {
-        //         console.log('disconnected')
-        //     }
-        // }
+        return () => {
+            socket.onclose = () => {
+                console.log('disconnected')
+            }
+        }
     }, [mss])
 
     const [celce, setCelce] = useState(0)
@@ -45,12 +47,16 @@ function App() {
 
     return (
         <div>
-            <Container fluid={true}>
+            <PageOne />
+            {/* <Container fluid={true}>
                 <Col lg={12} className="text-center mt-3 mb-4">
-                    <h1 className="text-white">BetaX</h1>
+                    <h1 className="text-dark">BetaX</h1>
                 </Col>
                 <Row>
                     <Col lg={6}>
+                        <div>
+                            asd
+                        </div>
                         <div id="status-table">
                             <Table borderless>
                                 <thead>
@@ -71,7 +77,7 @@ function App() {
                     <Col lg={6}>
                         <div className="thermometr">
                             <Col lg={12}>
-                                <h4 className="mb-5">Water Status</h4>
+                                <h4 className="mb-5">Suyun Tərkibi</h4>
                             </Col>
                             <Row>
                                 <Col lg={12}>
@@ -117,6 +123,10 @@ function App() {
                                         {
                                             label: 'Fikosinin',
                                             value: 20,
+                                        },
+                                        {
+                                            label: 'Ammonyak',
+                                            value: 20,
                                         }
                                         ]}
                                         colors={['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548', '#607d8b']}
@@ -127,39 +137,45 @@ function App() {
                     </Col>
                 </Row>
                 <Row className="mt-5">
-                    <Col lg={6}>
-                        <div id="status-table">
-                            Suyun yararlılığı
-                        </div>
-                    </Col>
-                    <Col lg={6}>
+                    <Col lg={12}>
                         <div className="thermometr">
-                            <Col lg={12}>
-                                <h4 className="mb-5">Water Status</h4>
-                            </Col>
                             <Row>
-                                <Col lg={6}>
-                                    <ReactStoreIndicator
-                                        value={30}
-                                        maxValue={100}
-                                    />
+                                <Col lg={4} className="d-flex justify-content-center">
+                                    <Col lg={12}>
+                                        <div className="mb-5">
+                                            <h4>İstifadəyə yararlılıq dərəcəsi</h4>
+                                        </div>
+                                        <ReactStoreIndicator
+                                            value={celce}
+                                            maxValue={100}
+                                        />
+                                    </Col>
                                 </Col>
-                                <Col lg={6}>
-                                    <Thermometer
-                                        theme="light"
-                                        value={celce}
-                                        max="100"
-                                        steps="3"
-                                        format="°C"
-                                        size="large"
-                                        height="250"
-                                    />
+                                <Col lg={4} className="text-center">
+                                    <h3>Su haqqımda</h3>
+                                    <p>lorem ipsum dolor sit amet</p>
+                                </Col>
+                                <Col lg={4} >
+                                    <Col lg={12} className="d-flex justify-content-center align-items-center flex-column">
+                                        <div className="mb-5">
+                                            <h4>Suyun Tempraturu</h4>
+                                        </div>
+                                        <Thermometer
+                                            theme="light"
+                                            value={celce}
+                                            max="100"
+                                            steps="3"
+                                            format="°C"
+                                            size="large"
+                                            height="250"
+                                        />
+                                    </Col>
                                 </Col>
                             </Row>
                         </div>
                     </Col>
                 </Row>
-            </Container>
+            </Container> */}
         </div>
     )
 }
