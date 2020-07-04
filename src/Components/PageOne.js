@@ -10,7 +10,9 @@ function PageOne(props) {
 
     const { data } = props
 
-    console.log(data.AirTemperature === null ? 0 : data.AirTemperature)
+    console.log(data[0])
+    console.log(data)
+
 
 
     // console.log(pageData.AirTemperature)
@@ -28,12 +30,12 @@ function PageOne(props) {
                         <div className="big-box pt-3">
                             <div className="box">
                                 <Row >
-                                    <Col lg={7} sm={12} md={12} xs={12}>
+                                    {/* <Col lg={7} sm={12} md={12} xs={12}>
                                         <DataChart data={props} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
                                         <ApexChart data={props} />
-                                    </Col>
+                                    </Col> */}
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">
                                             <Col lg={2} className="text-center">
