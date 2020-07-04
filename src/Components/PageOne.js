@@ -2,14 +2,14 @@ import React from 'react'
 import logo from "../assets/images/logo-w.svg"
 import { Container, Row, Col } from "reactstrap"
 import ApexChart from "./Chart"
-
+import DataChart from "./ChartData"
 
 function PageOne() {
     return (
         <div>
             <div className="header d-flex align-items-center text-white">
                 <Container fluid={true}>
-                    <img src={logo} height="30px" />
+                    <img src={logo} height="30" alt="logo" />
                 </Container>
             </div>
             <Container fluid={true}>
@@ -20,7 +20,17 @@ function PageOne() {
                                 <h4>Suyun Tərkibi</h4>
                             </div>
                             <div className="box">
-                                <ApexChart />
+                                <Row>
+                                    <Col lg={5} sm={12} md={12} xs={12}>
+                                        <ApexChart />
+                                    </Col>
+                                    <Col lg={7} sm={12} md={12} xs={12}>
+                                        <DataChart />
+                                    </Col>
+                                    <Col lg={12}>
+
+                                    </Col>
+                                </Row>
                             </div>
 
                         </div>

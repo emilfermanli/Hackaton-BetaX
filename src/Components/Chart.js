@@ -4,17 +4,18 @@ import ReactApexChart from "react-apexcharts"
 
 class ApexChart extends React.Component {
     constructor(props) {
-        super(props);
 
+
+        super(props);
         this.state = {
 
-            series: [44, 55, 13, 43, 22],
+            series: [10, 55, 13, 43, 22, 13, 43, 22],
             options: {
                 chart: {
                     width: 380,
                     type: 'pie',
                 },
-                labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+                labels: ['Nitrit', 'Fikosin', 'Nitrat', 'Xlorofil', 'Sulfat', 'No3', 'Sodium ', 'Alkalin'],
                 responsive: [{
                     breakpoint: 480,
                     options: {
