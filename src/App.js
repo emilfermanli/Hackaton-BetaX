@@ -12,8 +12,6 @@ function App() {
 
     const [data, setData] = useState(null)
 
-    console.log(data)
-    // const [celce, setCelce] = useState(0)
 
     useEffect(() => {
         socket.onopen = () => {
@@ -50,7 +48,7 @@ function App() {
 
     return (
         <div>
-            <PageOne />
+            <PageOne data={data} />
         </div>
     )
 }

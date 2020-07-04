@@ -6,7 +6,7 @@ import DataChart from "./ChartData"
 import Circle from 'react-circle'
 
 
-function PageOne() {
+function PageOne({ data }) {
     return (
         <div>
             <div className="header d-flex align-items-center text-white">
@@ -21,10 +21,10 @@ function PageOne() {
                             <div className="box">
                                 <Row >
                                     <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart />
+                                        <DataChart data={data} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart />
+                                        <ApexChart data={data} />
                                     </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">
@@ -33,7 +33,7 @@ function PageOne() {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={35}
+                                                    progress={data.WaterAcidity ? data.WaterAcidity : 0}
                                                     size={15}
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
@@ -45,7 +45,7 @@ function PageOne() {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={35}
+                                                    progress={data.SalinityOfWater ? data.SalinityOfWater : 0}
                                                     showPercentageSymbol={false}
                                                 />
                                                 <h6>Suyun duzluluğu</h6>
@@ -55,7 +55,7 @@ function PageOne() {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={30}
+                                                    progress={data.WaterTemperature ? data.WaterTemperature : 0}
                                                     progressColor="#d92027"
                                                     showPercentageSymbol={false}
                                                 />

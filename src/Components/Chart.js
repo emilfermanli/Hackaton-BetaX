@@ -9,7 +9,15 @@ class ApexChart extends React.Component {
         super(props);
         this.state = {
 
-            series: [10, 55, 13, 43, 22, 13, 43, 22],
+            series: [
+                this.props.Nitrite ? this.props.Nitrite : 0,
+                this.props.Fikosin ? this.props.Fikosin : 0,
+                this.props.Nitrate ? this.props.Nitrate : 0,
+                this.props.Chlorophyll ? this.props.Chlorophyll : 0,
+                this.props.Sulfate ? this.props.Sulfate : 0,
+                this.props.No3 ? this.props.No3 : 0,
+                this.props.Sodium ? this.props.Sodium : 0,
+                this.props.Alkaline ? this.props.Alkaline : 0],
             options: {
                 chart: {
                     width: 380,

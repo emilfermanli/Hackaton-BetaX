@@ -10,7 +10,19 @@ class DataChart extends React.Component {
         this.state = {
             series: [{
                 name: 'Servings',
-                data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65]
+                data: [
+                    this.props.WaterLevel ? this.props.WaterLevel : 0,
+                    this.props.FlowRate ? this.props.FlowRate : 0,
+                    this.props.WaterPermeability ? this.props.WaterPermeability : 0,
+                    this.props.WaterOxygen ? this.props.WaterOxygen : 0,
+                    this.props.Blurring ? this.props.Blurring : 0,
+                    this.props.Fikosin ? this.props.Fikosin : 0,
+                    this.props.SuspendedSolids ? this.props.SuspendedSolids : 0,
+                    this.props.Ammonia ? this.props.Ammonia : 0,
+                    this.props.NitrogenDioxide ? this.props.NitrogenDioxide : 0,
+                    this.props.HardnessOfTheWater ? this.props.HardnessOfTheWater : 0,
+                    this.props.ChemicalOxygenDemand ? this.props.ChemicalOxygenDemand : 0,
+                    this.props.BiochemicalOxygenDemand ? this.props.BiochemicalOxygenDemand : 0]
             }],
             options: {
                 chart: {
@@ -46,8 +58,8 @@ class DataChart extends React.Component {
                         'Fikosinin',
                         'Asılmış bərk maddələr (SS) - mg/l',
                         'Ammonyak',
-                        'itrogen Dioxksid(NO2) - mg/l',
-                        'codlulugu',
+                        'Nitrogen Dioxksid(NO2) - mg/l',
+                        'Codlulugu',
                         'Kimyəvi oksigen  tələbi (COD) mg/l ',
                         'Biokimyəvi oksigen tələbi'
                     ],
