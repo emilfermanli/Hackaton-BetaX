@@ -28,7 +28,7 @@ function App() {
             console.log(error)
         }
 
-        axios.get(`http://64.227.107.166/api`)
+        axios.get(`http://64.227.107.166/data`)
             .then(res => {
                 const persons = res.data;
                 console.log(persons.data)
