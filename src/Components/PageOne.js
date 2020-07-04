@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from "../assets/images/logo-w.svg"
 import { Container, Row, Col } from "reactstrap"
 import ApexChart from "./Chart"
@@ -8,13 +8,14 @@ import Circle from 'react-circle'
 
 function PageOne(props) {
 
+    const [pageData, setPageData] = useState()
 
     useEffect(() => {
+        setPageData(props.data)
+    }, [props, pageData])
 
-    }, [props])
 
-
-    console.log(props.data)
+    console.log(pageData.AirTemperature)
 
     return (
         <div>
