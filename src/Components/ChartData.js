@@ -13,6 +13,7 @@ class DataChart extends React.Component {
             console.log("data var")
             console.log(props.data.WaterLevel)
         }
+        console.log(props)
 
         this.state = {
             series: [{
