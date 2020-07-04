@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <SPI.h>
-#include "DHT.h"
+#include <DHT.h>
+#include <LoRa.h>
 
 #define DHTPIN 2
 #define DHTTYPE DHT11   
@@ -8,6 +9,7 @@
 #define echoPin 10
 #define SalinityPin A0 //duzluluq olcmek uchun pin 
 #define BlurringPin A1 //suyun bulaniqliq olcmek uchun pin 
+
 float humidity = 0;
 float temperature = 0;
 
@@ -22,6 +24,10 @@ void setup() {
    dht.begin();
    pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
    pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+   if (!LoRa.begin(915E6)) {
+    Serial.println("Starting LoRa failed!");
+    while (1);
+  }
 }
 void readDHT(){
    humidity = dht.readHumidity();
@@ -48,7 +54,7 @@ int ReadBlurringOfWater(){
  blurringOfWater =  map(analogRead(BlurringPin),0,1024,1,100);
  return blurringOfWater;
 }
-void testSensors(){
+void testSensors(){//only for debug
  Serial.print("Temperatur: ");
  Serial.print(temperature);
  Serial.print("Humidity: ");
@@ -61,6 +67,21 @@ void testSensors(){
  Serial.print(salinityOfWater);
  Serial.println();
 }
+void sendLora(){
+  LoRa.beginPacket();
+ LoRa.print(temperature);
+ LoRa.print(",");
+ LoRa.print(humidity);
+ LoRa.print(",");
+ LoRa.print(readWaterLevel());
+ LoRa.print(",");
+ LoRa.print(blurringOfWater);
+ LoRa.print(",");
+ LoRa.print(salinityOfWater);
+ LoRa.print(",");
+ LoRa.println();
+LoRa.endPacket();
+}
 void readSensors(){
   ReadSalinityOfWater();
   ReadBlurringOfWater();
@@ -68,6 +89,7 @@ void readSensors(){
   readDHT();
 }
 void loop() {
-  readSensors();
+readSensors();
 testSensors();
+sendLora();
 }
