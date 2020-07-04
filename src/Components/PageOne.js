@@ -26,7 +26,7 @@ function PageOne() {
                                 <h4>Suyun Tərkibi</h4>
                             </div>
                             <div className="box">
-                                <Row>
+                                <Row >
                                     <Col lg={5} sm={12} md={12} xs={12}>
                                         <ApexChart />
                                     </Col>

@@ -31,7 +31,7 @@ function App() {
         axios.get(`http://64.227.107.166/api`)
             .then(res => {
                 const persons = res.data;
-                console.log(persons)
+                console.log(persons.data)
                 console.log(res)
             })
 

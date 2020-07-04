@@ -51,4 +51,8 @@ a {
   height: 100vh;
 }
 
+#chart svg {
+  height: 400px;
+}
+
 /*# sourceMappingURL=style.css.map */
