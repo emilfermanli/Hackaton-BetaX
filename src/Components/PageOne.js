@@ -7,6 +7,7 @@ import Circle from 'react-circle'
 
 
 function PageOne({ data }) {
+    console.log(data)
     return (
         <div>
             <div className="header d-flex align-items-center text-white">
@@ -46,9 +47,10 @@ function PageOne({ data }) {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={data.SalinityOfWater ? data.SalinityOfWater : 0}
+                                                    progress={30}
                                                     showPercentageSymbol={false}
                                                 />
+                                                {/* data.SalinityOfWater ? data.SalinityOfWater : 0 */}
                                                 <h6>Suyun duzluluğu</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
@@ -56,10 +58,11 @@ function PageOne({ data }) {
                                                     animate={true}
                                                     animationDuration="1s"
                                                     responsive={true}
-                                                    progress={data.WaterTemperature ? data.WaterTemperature : 0}
+                                                    progress={30}
                                                     progressColor="#d92027"
                                                     showPercentageSymbol={false}
                                                 />
+                                                {/* data.WaterTemperature ? data.WaterTemperature : 0 */}
                                                 <h6>Suyun temperaturu</h6>
                                             </Col>
                                             <Col lg={6}>
