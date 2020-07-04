@@ -56,29 +56,13 @@ function App() {
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
+                                        <th>Tarix</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
+                                        <td>2020-07-6-05:30</td>
                                     </tr>
                                 </tbody>
                             </Table>
@@ -90,31 +74,20 @@ function App() {
                                 <h4 className="mb-5">Water Status</h4>
                             </Col>
                             <Row>
-                                <Col lg={4}>
-                                    <Thermometer
-                                        theme="light"
-                                        value={celce}
-                                        max="100"
-                                        steps="3"
-                                        format="°C"
-                                        size="large"
-                                        height="250"
-                                    />
-                                </Col>
-                                <Col lg={8}>
+                                <Col lg={12}>
                                     <DonutChart
                                         height={300}
-                                        width={350}
+                                        width={400}
                                         data={[{
-                                            label: 'Suyun çirkliliyi',
+                                            label: 'Çirkliliyi',
                                             value: 25,
                                         },
                                         {
-                                            label: 'Suyun turşuluğu (pH)',
+                                            label: 'Turşuluğu ',
                                             value: 30,
                                         },
                                         {
-                                            label: 'Suyun duzluluğu ',
+                                            label: 'Duzluluğu ',
                                             value: 20,
                                         },
                                         {
@@ -126,14 +99,28 @@ function App() {
                                             value: 20,
                                         },
                                         {
-                                            label: 'NO3  mg/l',
+                                            label: 'NO3 mg/l',
                                             value: 20,
                                         },
                                         {
                                             label: 'Sulfat',
                                             value: 20,
+                                        },
+                                        {
+                                            label: 'Bulanlıqlıq',
+                                            value: 20,
+                                        },
+                                        {
+                                            label: 'Xlorofil',
+                                            value: 20,
+                                        },
+                                        {
+                                            label: 'Fikosinin',
+                                            value: 20,
                                         }
-                                        ]} />
+                                        ]}
+                                        colors={['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548', '#607d8b']}
+                                    />
                                 </Col>
                             </Row>
                         </div>
@@ -151,10 +138,21 @@ function App() {
                                 <h4 className="mb-5">Water Status</h4>
                             </Col>
                             <Row>
-                                <Col lg={12}>
+                                <Col lg={6}>
                                     <ReactStoreIndicator
                                         value={30}
                                         maxValue={100}
+                                    />
+                                </Col>
+                                <Col lg={6}>
+                                    <Thermometer
+                                        theme="light"
+                                        value={celce}
+                                        max="100"
+                                        steps="3"
+                                        format="°C"
+                                        size="large"
+                                        height="250"
                                     />
                                 </Col>
                             </Row>
