@@ -21,6 +21,7 @@ function App() {
         }
         socket.onmessage = (event) => {
             console.log(JSON.stringify(event.data))
+            setData(JSON.stringify(event.data))
         }
 
         socket.onerror = (error) => {
@@ -30,8 +31,8 @@ function App() {
         axios.get(`http://64.227.107.166/data`)
             .then(res => {
                 const persons = res.data;
-                setData(persons.data)
-                console.log(res)
+                console.log(persons.data)
+
             })
 
         return () => {
