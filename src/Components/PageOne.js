@@ -77,7 +77,11 @@ function PageOne() {
 
                         </div>
                     </Col>
-                    <Col lg={2}>
+                    <Col lg={2} className="mb-2">
+                        <h5>Cihazın yerləşmə nöqtəsi</h5>
+                        <div style={{ height: "150px" }} className="map w-100">
+                            <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.4463740276674!2d49.920235515399455!3d40.53172637935183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDMxJzU0LjIiTiA0OcKwNTUnMjAuNyJF!5e0!3m2!1sen!2s!4v1593886057478!5m2!1sen!2s" frameborder="0" style={{ width: "100%", height: "100%", border: 0 }} allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
                         <div className="mini-header text-center">
                             <h5>Məlumatın tarixi</h5>
                         </div>
