@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from "../assets/images/logo-w.svg"
 import { Container, Row, Col } from "reactstrap"
 import ApexChart from "./Chart"
@@ -7,7 +7,11 @@ import Circle from 'react-circle'
 
 
 function PageOne({ data }) {
-    console.log(data)
+
+    useEffect(() => {
+
+    }, [data])
+
     return (
         <div>
             <div className="header d-flex align-items-center text-white">
