@@ -15,7 +15,7 @@ function PageOne(props) {
     }, [props, pageData])
 
 
-    console.log(pageData.AirTemperature)
+    console.log(pageData)
 
     return (
         <div>
