@@ -6,9 +6,7 @@ import PageOne from './Components/PageOne'
 function App() {
 
 
-    const [data, setData] = useState()
-
-    console.log(data)
+    const [data, setData] = useState(null)
 
     useEffect(() => {
         socket.onopen = () => {

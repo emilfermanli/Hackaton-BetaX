@@ -10,7 +10,7 @@ function PageOne(props) {
 
     const { data } = props
 
-    console.log(data)
+    console.log(!data.AirTemperature ? 0 : data.AirTemperature)
 
 
     // console.log(pageData.AirTemperature)
