@@ -6,11 +6,14 @@ import DataChart from "./ChartData"
 import Circle from 'react-circle'
 
 
-function PageOne({ data }) {
+function PageOne(props) {
 
     useEffect(() => {
 
-    }, [data])
+    }, [props])
+
+
+    console.log(props.WaterAcidity)
 
     return (
         <div>
@@ -26,10 +29,10 @@ function PageOne({ data }) {
                             <div className="box">
                                 <Row >
                                     <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart data={data} />
+                                        <DataChart data={props} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart data={data} />
+                                        <ApexChart data={props} />
                                     </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">
@@ -43,7 +46,7 @@ function PageOne({ data }) {
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
                                                 />
-                                                <p>text - {data.WaterAcidity ? data.WaterAcidity : 0}</p>
+                                                {/* {data.WaterAcidity ? data.WaterAcidity : 0} */}
                                                 <h6>Suyun turşuluğu (pH)</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
