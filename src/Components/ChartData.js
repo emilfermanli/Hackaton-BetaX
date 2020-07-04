@@ -89,6 +89,8 @@ function DataChart(props) {
             },
         }
     )
+
+    console.log(chartData.series)
     return (
         <div id="chart">
             <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={350} />
