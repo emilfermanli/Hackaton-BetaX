@@ -10,7 +10,7 @@ import PageOne from './Components/PageOne'
 function App() {
 
 
-    const [data, setData] = useState()
+    const [data, setData] = useState(null)
 
     console.log(data)
     // const [celce, setCelce] = useState(0)
@@ -21,7 +21,9 @@ function App() {
         }
         socket.onmessage = (event) => {
             console.log(JSON.stringify(event.data))
-            setData(JSON.stringify(event.data))
+            console.log(event.data)
+
+            setData(JSON.parse(event.data))
         }
 
         socket.onerror = (error) => {
