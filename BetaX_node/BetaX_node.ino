@@ -61,7 +61,7 @@ void testSensors(){
  Serial.print(salinityOfWater);
  Serial.println();
 }
-readSensors(){
+void readSensors(){
   ReadSalinityOfWater();
   ReadBlurringOfWater();
   readWaterLevel();
