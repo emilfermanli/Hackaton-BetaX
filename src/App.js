@@ -21,7 +21,6 @@ function App() {
         }
         socket.onmessage = (event) => {
             console.log(event)
-            console.log(JSON.parse(event))
             console.log("received -->" + event)
         }
 
