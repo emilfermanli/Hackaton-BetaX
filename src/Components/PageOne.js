@@ -8,8 +8,9 @@ import Circle from 'react-circle'
 
 function PageOne(props) {
 
+    const { data } = props
 
-    console.log(props)
+    console.log(data)
 
 
     // console.log(pageData.AirTemperature)
