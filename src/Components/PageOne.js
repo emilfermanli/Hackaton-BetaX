@@ -8,13 +8,13 @@ import Circle from 'react-circle'
 
 function PageOne(props) {
 
+
     useEffect(() => {
 
     }, [props])
 
 
     console.log(props)
-    console.log(props.data)
 
     return (
         <div>
@@ -30,10 +30,10 @@ function PageOne(props) {
                             <div className="box">
                                 <Row >
                                     <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart data={props.data} />
+                                        <DataChart data={props} />
                                     </Col>
                                     <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart data={props.data} />
+                                        <ApexChart data={props} />
                                     </Col>
                                     <Col lg={12}>
                                         <Row className="pl-2 pr-2">
@@ -47,7 +47,7 @@ function PageOne(props) {
                                                     progressColor="#9bdeac"
                                                     showPercentageSymbol={false}
                                                 />
-                                                {props.data.WaterAcidity ? props.data.WaterAcidity : 0}
+                                                {/* {!props.data.WaterAcidity ? 0 : props.data.WaterAcidity} */}
                                                 <h6>Suyun turşuluğu (pH)</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
@@ -58,7 +58,7 @@ function PageOne(props) {
                                                     progress={30}
                                                     showPercentageSymbol={false}
                                                 />
-                                                {props.data.SalinityOfWater ? props.data.SalinityOfWater : 0}
+                                                {/* {!props.data.SalinityOfWater ? 0 : props.data.SalinityOfWater} */}
                                                 <h6>Suyun duzluluğu</h6>
                                             </Col>
                                             <Col lg={2} className="text-center">
@@ -70,7 +70,7 @@ function PageOne(props) {
                                                     progressColor="#d92027"
                                                     showPercentageSymbol={false}
                                                 />
-                                                {props.data.WaterTemperature ? props.data.WaterTemperature : 0}
+                                                {/* {!props.data.WaterTemperature ? 0 : props.data.WaterTemperature} */}
                                                 <h6>Suyun temperaturu</h6>
                                             </Col>
                                             <Col lg={6}>

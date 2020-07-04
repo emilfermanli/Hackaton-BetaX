@@ -6,7 +6,37 @@ import PageOne from './Components/PageOne'
 function App() {
 
 
-    const [data, setData] = useState()
+    const [data, setData] = useState(
+        {
+            AirTemperature: 0,
+            Alkaline: 0,
+            Ammonia: 0,
+            AmmoniumIon: 0,
+            BiochemicalOxygenDemand: 0,
+            Blurring: 0,
+            ChemicalOxygenDemand: 0,
+            Chlorophyll: 0,
+            ClientId: 0,
+            Date: "",
+            Fikosin: 0,
+            FlowRate: 0,
+            HardnessOfTheWater: 0,
+            Nitrate: 0,
+            Nitrite: 0,
+            NitrogenDioxide: 0,
+            No3: 0,
+            OwnerId: "",
+            SalinityOfWater: 0,
+            Sodium: 0,
+            Sulfate: 0,
+            SuspendedSolids: 0,
+            WaterAcidity: 0,
+            WaterLevel: 0,
+            WaterOxygen: 0,
+            WaterPermeability: 0,
+            WaterTemperature: 0,
+        }
+    )
 
 
     useEffect(() => {
@@ -14,7 +44,8 @@ function App() {
             console.log("connected to websocket")
         }
         socket.onmessage = (event) => {
-            setData(JSON.parse(event.data))
+            setData(JSON.parse(event.data.data))
+            console.log(JSON.parse(event.data.data))
         }
 
         socket.onerror = (error) => {
