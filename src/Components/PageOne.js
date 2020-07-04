@@ -14,7 +14,7 @@ function PageOne(props) {
     }, [props])
 
 
-    console.log(props)
+    console.log(props.data)
 
     return (
         <div>

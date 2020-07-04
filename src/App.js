@@ -44,8 +44,7 @@ function App() {
             console.log("connected to websocket")
         }
         socket.onmessage = (event) => {
-            setData(JSON.parse(event.data.data))
-            console.log(JSON.parse(event.data.data))
+            setData(JSON.parse(event.data))
         }
 
         socket.onerror = (error) => {
