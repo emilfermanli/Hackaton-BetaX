@@ -39,6 +39,15 @@ class ApexChart extends React.Component {
 
 
         };
+
+
+    }
+    shouldComponentUpdate() {
+        return this.props
+    }
+
+    componentDidUpdate() {
+        return this.props
     }
 
     render() {
