@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9f1a50fd-dd29-4031-bc8a-af708d1cc77b" name="BetaX" url="http://64.227.107.166">
+        <fileTransfer rootFolder="/root" accessType="SFTP" host="64.227.107.166" port="22" sshConfigId="21dab1dc-6836-4c68-ab1c-1dc7bf308c03" sshConfig="root@64.227.107.166:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

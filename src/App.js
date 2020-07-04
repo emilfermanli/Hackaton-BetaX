@@ -3,6 +3,8 @@ import { socket } from "./Components/socket"
 import axios from "axios"
 import { Container, Col, Table, Row } from "reactstrap"
 import Thermometer from 'react-thermometer-component'
+import DonutChart from 'react-donut-chart';
+
 
 function App() {
 
@@ -37,9 +39,9 @@ function App() {
         // }
     }, [mss])
 
-    setTimeout(function () { setCelce(45) }, 3000);
-
     const [celce, setCelce] = useState(0)
+
+    setTimeout(function () { setCelce(99) }, 3000);
 
     return (
         <div>
@@ -50,7 +52,7 @@ function App() {
                 <Row>
                     <Col lg={6}>
                         <div id="status-table">
-                            <Table>
+                            <Table borderless>
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -87,15 +89,57 @@ function App() {
                             <Col lg={12}>
                                 <h4 className="mb-5">Water Status</h4>
                             </Col>
-                            <Thermometer
-                                theme="light"
-                                value={celce}
-                                max="100"
-                                steps="3"
-                                format="°C"
-                                size="large"
-                                height="250"
-                            />
+                            <Row>
+                                <Col lg={4}>
+                                    <Thermometer
+                                        theme="light"
+                                        value={celce}
+                                        max="100"
+                                        steps="3"
+                                        format="°C"
+                                        size="large"
+                                        height="250"
+                                    />
+                                </Col>
+                                <Col lg={8}>
+                                    <DonutChart
+                                        height="300"
+                                        width="350"
+                                        data={[{
+                                            label: 'Suyun çirkliliyi',
+                                            value: 25,
+                                        },
+                                        {
+                                            label: 'Suyun turşuluğu (pH)',
+                                            value: 30,
+                                        },
+                                        {
+                                            label: 'Suyun duzluluğu ',
+                                            value: 20,
+                                        },
+                                        {
+                                            label: 'Sodium',
+                                            value: 20,
+                                        },
+                                        {
+                                            label: 'Alkalin',
+                                            value: 20,
+                                        },
+                                        {
+                                            label: 'NO3  mg/l',
+                                            value: 20,
+                                        },
+                                        {
+                                            label: 'Sulfat',
+                                            value: 20,
+                                        },
+
+                                        {
+                                            label: '',
+                                            value: 75,
+                                        }]} />
+                                </Col>
+                            </Row>
                         </div>
                     </Col>
                 </Row>
