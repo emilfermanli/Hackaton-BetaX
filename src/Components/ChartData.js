@@ -94,7 +94,7 @@ function DataChart(props) {
 
     return (
         <div id="chart">
-            <ReactApexChart options={chartData.options} series={chartData.series.data} type="bar" height={350} />
+            <ReactApexChart options={chartData.options} series={chartData.series[0].data} type="bar" height={350} />
         </div>
     )
 }
