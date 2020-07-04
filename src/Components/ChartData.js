@@ -11,7 +11,7 @@ class DataChart extends React.Component {
             console.log("data yoxdu")
         } else {
             console.log("data var")
-            console.log(props.data.AirTemperature)
+            console.log(props.data.WaterLevel)
         }
 
         this.state = {
