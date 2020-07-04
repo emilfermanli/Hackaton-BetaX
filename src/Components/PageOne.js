@@ -10,7 +10,6 @@ function PageOne(props) {
 
     const { data } = props
 
-    console.log(data[0])
     console.log(data)
 
 
