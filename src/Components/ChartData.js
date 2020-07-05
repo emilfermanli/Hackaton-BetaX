@@ -187,7 +187,13 @@ function DataChart(props) {
     };
 
     console.log(data)
-    console.log(data.data)
+    if (data === null) {
+        console.log("data yoxdu")
+    } else {
+        console.log("data var")
+        console.log(data)
+        console.log(data.WaterLevel)
+    }
 
     return (
         <div>
