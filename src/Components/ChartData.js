@@ -46,18 +46,18 @@ function DataChart(props) {
                     rotate: -45
                 },
                 categories: [
-                    'Suyun səviyyəsi',
-                    'Axın sürəti',
+                    'Suyun səviyyəsi - m',
+                    'Axın sürəti - m/d',
                     'Suyun xüsusi keçiriciliyi - μS/cm',
-                    'Həll edilmiş oksigenin miqdarı ',
-                    'Bulanlıqlıq',
-                    'Fikosinin',
+                    'Həll edilmiş oksigenin miqdarı - mg/l',
+                    'Bulanlıqlıq fno - mg/l',
+                    'Fikosinin - mg/l',
                     'Asılmış bərk maddələr (SS) - mg/l',
-                    'Ammonyak',
+                    'Ammonyak - mg/l',
                     'Nitrogen Dioxksid(NO2) - mg/l',
-                    'Codlulugu',
+                    'Codlulugu - mg/l',
                     'Kimyəvi oksigen  tələbi (COD) mg/l ',
-                    'Biokimyəvi oksigen tələbi'
+                    'Biokimyəvi oksigen tələbi - mg/l'
                 ],
                 tickPlacement: 'on'
             },
