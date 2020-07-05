@@ -19,30 +19,30 @@ int salinityOfWater = 0;
 
 enum sensorDataOrder
 {              
-	WaterLevel,              
-	WaterTemperature,         
-	FlowRate,                 
-	WaterAcidity,             
-	SalinityOfWater ,         
-	AirTemperature,           
-	Sodium ,                  
-	Alkaline ,                
-	No3   ,                   
-	Sulfate ,                 
-	WaterPermeability   ,     
-	WaterOxygen          ,    
-	Blurring               ,  
-	Chlorophyll           ,   
-	Fikosin,               
-	Ammonia,                  
-	SuspendedSolids        ,  
-	NitrogenDioxide        ,  
-	AmmoniumIon            ,  
-	HardnessOfTheWater     ,  
-	ChemicalOxygenDemand    , 
-	BiochemicalOxygenDemand  ,
-	Nitrite,                  
-	Nitrate ,                 
+  WaterLevel=0,              
+  WaterTemperature,         
+  FlowRate,                 
+  WaterAcidity,             
+  SalinityOfWater ,         
+  AirTemperature,           
+  Sodium ,                  
+  Alkaline ,                
+  No3   ,                   
+  Sulfate ,                 
+  WaterPermeability   ,     
+  WaterOxygen          ,    
+  Blurring               ,  
+  Chlorophyll           ,   
+  Fikosin,               
+  Ammonia,                  
+  SuspendedSolids        ,  
+  NitrogenDioxide        ,  
+  AmmoniumIon            ,  
+  HardnessOfTheWater     ,  
+  ChemicalOxygenDemand    , 
+  BiochemicalOxygenDemand  ,
+  Nitrite,                  
+  Nitrate ,                 
 };
 
 void printSerialData()
@@ -59,24 +59,30 @@ sensorData[SalinityOfWater] = salinityOfWater;
 sensorData[AirTemperature] = airTemperature;
 sensorData[Blurring] = blurringOfWater;
 //real data end
-  sensorData[FlowRate] = 0;
-  sensorData[WaterAcidity] = 0;
-	sensorData[No3] = 0;                     
-	sensorData[Sulfate] = 0;                 
-	sensorData[WaterPermeability] = 0;       
-  sensorData[WaterOxygen] = 0;           
-	sensorData[Blurring]  = 0;            
-	sensorData[Chlorophyll]  = 0;           
-	sensorData[Fikosin]      =0;        
-	sensorData[Ammonia]      =0;           
-	sensorData[SuspendedSolids] =0;      
-	sensorData[NitrogenDioxide] =0;        
-	sensorData[AmmoniumIon]     =0;         
-	sensorData[HardnessOfTheWater] =0;      
-	sensorData[ChemicalOxygenDemand]  =0;  
-	sensorData[BiochemicalOxygenDemand]  =0;
-  sensorData[Nitrite]=0;     
-  sensorData[Nitrate]=0;
+
+  sensorData[FlowRate] = 4;
+  sensorData[WaterAcidity] = 2;
+  
+  sensorData[Sodium] = 2,5;                     
+  sensorData[Alkaline] = 3,2;               
+    
+  sensorData[No3] = 4,5;                     
+  sensorData[Sulfate] = 3,6;               
+    
+  sensorData[WaterPermeability] = 1,5;       
+  sensorData[WaterOxygen] = 1,8;           
+  sensorData[Blurring]  = 1,5;            
+  sensorData[Chlorophyll]  = 0,5;           
+  sensorData[Fikosin]      =0,8;        
+  sensorData[Ammonia]      =1;           
+  sensorData[SuspendedSolids] =1,6;      
+  sensorData[NitrogenDioxide] =1,7;        
+  sensorData[AmmoniumIon]     =0,01;         
+  sensorData[HardnessOfTheWater] =1;      
+  sensorData[ChemicalOxygenDemand]  =2;  
+  sensorData[BiochemicalOxygenDemand]  =3;
+  sensorData[Nitrite]=0,5;     
+  sensorData[Nitrate]=0,4;
 }
 
 void sendDataGPRS()
@@ -162,7 +168,7 @@ void setup()
 {
  myGsm.begin(9600);  
  Serial.begin(9600);  
-   if (!LoRa.begin(915E6)) {
+   if (!LoRa.begin(868E6)) {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
@@ -231,6 +237,6 @@ configureGsm();
 receiveDataLoRa0();
 sensorsToServer();
 sendDataGPRS();
-serialDebug();
+//serialDebug();
 delay(1000);
 }
