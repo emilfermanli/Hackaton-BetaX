@@ -96,14 +96,8 @@ function PageOne(props) {
                                                     <div className="big-header ">
                                                         <h6>Suyun yararlılığı haqqında məlumat</h6>
                                                     </div>
-                                                    <div>
-                                                        {
-                                                            (num > 2) && (num < 4) ?
-                                                                <ol>
-                                                                    <li>salam</li>
-                                                                </ol> :
-                                                                console.log("test false")
-                                                        }
+                                                    <div className="pl-4 pr-4 pt-2">
+                                                        <p>Suyun keyfiyyətini bilmək bizə ilk öncə onun nəyə yararlı olması haqqında məlumat verir.  Suyun keyfiyyətini bilib biz onun suvarma üçün yaxud da içməyə yararlı ya da yararsız olmasını bilə bilərik. Məsələn  şor su suvarma üçün  eyni zamanda da içmək üçün yararsız hesab olunur. Tərkibində az yod olan, çirkli, zərərli bakteriyalar olan, axımı olmayan su içmək üçün yararsız hesab olunur.</p>
                                                     </div>
                                                 </div>
                                             </Col>
