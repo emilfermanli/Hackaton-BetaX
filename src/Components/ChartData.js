@@ -11,7 +11,7 @@ function DataChart(props) {
                 props.data === null ? 0 : props.data.FlowRate,
                 props.data === null ? 0 : props.data.WaterPermeability,
                 props.data === null ? 0 : props.data.WaterOxygen,
-                props.data === null ? 0 : props.data.Blurring,
+                props.data === null ? 0 : props.data.Sodium,
                 props.data === null ? 0 : props.data.Fikosin,
                 props.data === null ? 0 : props.data.SuspendedSolids,
                 props.data === null ? 0 : props.data.Ammonia,
@@ -46,11 +46,11 @@ function DataChart(props) {
                     rotate: -45
                 },
                 categories: [
-                    'Suyun səviyyəsi - m',
+                    'Suyun səviyyəsi-m',
                     'Axın sürəti - m/d',
                     'Suyun xüsusi keçiriciliyi - μS/cm',
                     'Həll edilmiş oksigenin miqdarı - mg/l',
-                    'Bulanlıqlıq fno - mg/l',
+                    'Havanın tempraturu fno - mg/l',
                     'Fikosinin - mg/l',
                     'Asılmış bərk maddələr (SS) - mg/l',
                     'Ammonyak - mg/l',

@@ -11,7 +11,7 @@ function ApexChart(props) {
             props.data === null ? 0 : parseInt(props.data.Chlorophyll),
             props.data === null ? 0 : parseInt(props.data.Sulfate),
             props.data === null ? 0 : parseInt(props.data.No3),
-            props.data === null ? 0 : parseInt(props.data.Sodium),
+            props.data === null ? 0 : parseInt(props.data.Blurring),
             props.data === null ? 0 : parseInt(props.data.Alkaline)
         ],
         options: {

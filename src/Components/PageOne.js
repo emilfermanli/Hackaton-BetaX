@@ -78,7 +78,7 @@ function PageOne(props) {
                                                         animate={true}
                                                         animationDuration="1s"
                                                         responsive={true}
-                                                        progress={data === null ? 0 : data.WaterTemperature}
+                                                        progress={data === null ? 0 : data.FlowRate}
                                                         progressColor="#d92027"
                                                         showPercentageSymbol={false}
                                                     />
