@@ -6,9 +6,9 @@ import ReactApexChart from "react-apexcharts"
 function DataChart(props) {
 
 
-    const state = {
+    let state = {
         series: [{
-            name: 'Servings',
+            name: 'Nəticə',
             data: [
                 props.data === null ? 0 : props.data.WaterLevel,
                 props.data === null ? 0 : props.data.FlowRate,
