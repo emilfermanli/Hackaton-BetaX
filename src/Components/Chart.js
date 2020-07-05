@@ -57,7 +57,14 @@ function ApexChart(props) {
 
     let state = {
         series: [
-            1, 1, 1, 1, 1, 1, 1, 1,
+            props.data === null ? 0 : parseInt(props.data.Nitrite),
+            props.data === null ? 0 : parseInt(props.data.Fikosin),
+            props.data === null ? 0 : parseInt(props.data.Nitrate),
+            props.data === null ? 0 : parseInt(props.data.Chlorophyll),
+            props.data === null ? 0 : parseInt(props.data.Sulfate),
+            props.data === null ? 0 : parseInt(props.data.No3),
+            props.data === null ? 0 : parseInt(props.data.Sodium),
+            props.data === null ? 0 : parseInt(props.data.Alkaline)
         ],
         options: {
             chart: {
@@ -78,6 +85,14 @@ function ApexChart(props) {
             }]
         },
 
+    }
+
+    if (props.data === null) {
+        console.log("data yoxdu")
+    } else {
+        console.log(typeof props.data.Nitrite)
+        console.log(typeof Number(props.data.Nitrite))
+        console.log(typeof parseInt(props.data.Nitrite))
     }
 
     return (
