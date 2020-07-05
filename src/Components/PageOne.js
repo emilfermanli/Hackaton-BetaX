@@ -81,7 +81,7 @@ function PageOne(props) {
                                                         showPercentageSymbol={false}
                                                     />
 
-                                                    <h6>Suyun temperaturu</h6>
+                                                    <h6>Suyun temperaturu - (C)</h6>
                                                 </Col>
                                             </Row>
                                         </div>
@@ -97,7 +97,7 @@ function PageOne(props) {
                                                     <div className="pl-4 pr-4">
                                                         <p className="m-0">Suyun keyfiyyətini bilmək bizə ilk öncə onun nəyə yararlı olması haqqında məlumat verir.  Suyun keyfiyyətini bilib biz onun suvarma üçün yaxud da içməyə yararlı ya da yararsız olmasını bilə bilərik. Məsələn  şor su suvarma üçün  eyni zamanda da içmək üçün yararsız hesab olunur. Tərkibində az yod olan, çirkli, zərərli bakteriyalar olan, axımı olmayan su içmək üçün yararsız hesab olunur.</p>
                                                         <div className="alert mt-1 text-center text-white">
-                                                            <h6>Su içmək üçün yararlıdır</h6>
+                                                            <h6>Su içmək üçün yararlıdır!</h6>
                                                         </div>
                                                     </div>
 
