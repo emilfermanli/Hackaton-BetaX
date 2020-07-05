@@ -10,7 +10,8 @@ String password = "z$38rP?ap6Uc;3~C@>t&w'P7,";
 String terminator = "*";
 char* LoRaReceivedByte = 0 ;
 
-int waterTemperature = 0;
+float waterTemperature = 0;
+float airTemperature = 0;
 int humidity = 0;
 int waterLevel = 0;
 int blurringOfWater = 0;
@@ -49,6 +50,34 @@ void printSerialData()
  while(myGsm.available()!=0)
  Serial.write(myGsm.read());
 };
+
+void sensorsToServer(){
+//real data begin
+sensorData[WaterLevel] = waterLevel;
+sensorData[WaterTemperature] = waterTemperature;
+sensorData[SalinityOfWater] = salinityOfWater;
+sensorData[AirTemperature] = airTemperature;
+sensorData[Blurring] = blurringOfWater;
+//real data end
+  sensorData[FlowRate] = 0;
+  sensorData[WaterAcidity] = 0;
+	sensorData[No3] = 0;                     
+	sensorData[Sulfate] = 0;                 
+	sensorData[WaterPermeability] = 0;       
+  sensorData[WaterOxygen] = 0;           
+	sensorData[Blurring]  = 0;            
+	sensorData[Chlorophyll]  = 0;           
+	sensorData[Fikosin]      =0;        
+	sensorData[Ammonia]      =0;           
+	sensorData[SuspendedSolids] =0;      
+	sensorData[NitrogenDioxide] =0;        
+	sensorData[AmmoniumIon]     =0;         
+	sensorData[HardnessOfTheWater] =0;      
+	sensorData[ChemicalOxygenDemand]  =0;  
+	sensorData[BiochemicalOxygenDemand]  =0;
+  sensorData[Nitrite]=0;     
+  sensorData[Nitrate]=0;
+}
 
 void sendDataGPRS()
 {
@@ -115,8 +144,10 @@ printSerialData();
 }
 
 void serialDebug(){
-Serial.print("Temperatur: ");
+Serial.print("Su Temperatur: ");
  Serial.print(waterTemperature);
+ Serial.print("Hava Temperatur: ");
+ Serial.print(airTemperature);
  Serial.print("Humidity: ");
  Serial.print(humidity);
  Serial.print("Derinlik: ");
@@ -143,7 +174,7 @@ void receiveDataLoRa0() {
     // received a packet
     Serial.print("Received packet '");
 
-    char *p1, *p2, *p3, *p4, *p5;
+    char *p1, *p2, *p3, *p4, *p5, *p6;
     char lora_buffer[64];
     memset(lora_buffer, 0, sizeof(lora_buffer));
     char* LoRaReceivedByte = lora_buffer;
@@ -154,52 +185,52 @@ void receiveDataLoRa0() {
 
       //      Serial.println(LoRaReceivedByte);
       LoRaReceivedNextByte = (LoRaReceivedByte + 1);
-      if (strchr(LoRaReceivedByte, 'T') != 0) {
+      if (strchr(LoRaReceivedByte, 'A') != 0) {
         //        waterTemperature = atoi(LoRaReceivedNextByte);
         p1 = LoRaReceivedNextByte;
       }
-      if (strchr(LoRaReceivedByte, 'H') != 0) {
+      if (strchr(LoRaReceivedByte, 'W') != 0) {
         //        humidity = atoi(LoRaReceivedNextByte);
         p2 = LoRaReceivedNextByte;
       }
-      if (strchr(LoRaReceivedByte, 'L') != 0) {
+      if (strchr(LoRaReceivedByte, 'H') != 0) {
         //        waterLevel = atoi(LoRaReceivedNextByte);
         p3 = LoRaReceivedNextByte;
       }
-      if (strchr(LoRaReceivedByte, 'B') != 0) {
+      if (strchr(LoRaReceivedByte, 'L') != 0) {
         //        blurringOfWater = atoi(LoRaReceivedNextByte);
         p4 = LoRaReceivedNextByte;
       }
-      if (strchr(LoRaReceivedByte, 'S') != 0) {
+      if (strchr(LoRaReceivedByte, 'B') != 0) {
         //        salinityOfWater = atoi(LoRaReceivedNextByte);
         p5 = LoRaReceivedNextByte;
+      }
+       if (strchr(LoRaReceivedByte, 'S') != 0) {
+        //        salinityOfWater = atoi(LoRaReceivedNextByte);
+        p6 = LoRaReceivedNextByte;
       }
       LoRaReceivedByte++;
     }
     Serial.print("Lora Buffer = ");
     Serial.println(lora_buffer);
-    waterTemperature = atoi(p1);
-    humidity = atoi(p2);
-    waterLevel = atoi(p3);
-    blurringOfWater = atoi(p4);
-    salinityOfWater = atoi(p5);
+    airTemperature = atoi(p1);
+    waterTemperature = atoi(p2);
+    humidity = atoi(p3);
+    waterLevel = atoi(p4);
+    blurringOfWater = atoi(p5);
+    salinityOfWater = atoi(p6);
     // print RSSI of packet
     Serial.print("' with RSSI ");
     Serial.println(LoRa.packetRssi());
   }
 }
 
-void sensorsToServer(){
-sensorData[WaterLevel] = waterLevel;
-sensorData[WaterTemperature] = waterTemperature;
-//sensorData[SalinityOfWater] = 
-}
-
 void loop()
 {
-//configureGsm();
+configureGsm();
 receiveDataLoRa0();
-//sendDataGPRS();
+sensorsToServer();
+sendDataGPRS();
 serialDebug();
 delay(1000);
 }
