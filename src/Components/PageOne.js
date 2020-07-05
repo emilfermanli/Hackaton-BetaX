@@ -12,64 +12,83 @@ function PageOne(props) {
 
     return (
         <div>
-            <div className="header d-flex align-items-center text-white">
+            <div className="header text-white">
                 <Container fluid={true}>
-                    <img src={logo} height="30" alt="logo" />
+                    <div className="d-flex align-items-center justify-content-evenly">
+                        <img src={logo} height="30" alt="logo" />
+                        <h5>BetaX</h5>
+                    </div>
                 </Container>
             </div>
             <Container fluid={true}>
                 <Row className="pt-3">
                     <Col lg={10}>
-                        <div className="big-box pt-3">
+                        <div className=" pt-3">
                             <div className="box">
                                 <Row >
                                     <Col lg={7} sm={12} md={12} xs={12}>
-                                        <DataChart data={data} />
+                                        <div className="big-box">
+                                            <DataChart data={data} />
+                                        </div>
                                     </Col>
-                                    <Col lg={5} sm={12} md={12} xs={12}>
-                                        <ApexChart data={data} />
+                                    <Col lg={5} sm={12} md={12} xs={12} className="pl-0">
+                                        <div className="big-box">
+                                            <div className="big-header ">
+                                                <h6>Suyun kimyəvi tərkibi</h6>
+                                            </div>
+                                            <ApexChart data={data} />
+                                        </div>
                                     </Col>
-                                    <Col lg={12}>
-                                        <Row className="pl-2 pr-2">
-                                            <Col lg={2} className="text-center">
-                                                <Circle
-                                                    animate={true}
-                                                    animationDuration="1s"
-                                                    responsive={true}
-                                                    progress={data === null ? 0 : data.WaterAcidity}
-                                                    size={15}
-                                                    progressColor="#9bdeac"
-                                                    showPercentageSymbol={false}
-                                                />
+                                    <Col lg={7}>
+                                        <div className="big-box big-box-2 w-100">
+                                            <Row className="justify-content-around p-2">
+                                                <Col lg={3} className="text-center">
+                                                    <Circle
+                                                        animate={true}
+                                                        animationDuration="1s"
+                                                        responsive={true}
+                                                        progress={data === null ? 0 : data.WaterAcidity}
+                                                        size={15}
+                                                        progressColor="#9bdeac"
+                                                        showPercentageSymbol={false}
+                                                    />
 
-                                                <h6>Suyun turşuluğu (pH)</h6>
-                                            </Col>
-                                            <Col lg={2} className="text-center">
-                                                <Circle
-                                                    animate={true}
-                                                    animationDuration="1s"
-                                                    responsive={true}
-                                                    progress={data === null ? 0 : data.SalinityOfWater}
-                                                    showPercentageSymbol={false}
-                                                />
+                                                    <h6>Suyun turşuluğu (pH)</h6>
+                                                </Col>
+                                                <Col lg={3} className="text-center">
+                                                    <Circle
+                                                        animate={true}
+                                                        animationDuration="1s"
+                                                        responsive={true}
+                                                        progress={data === null ? 0 : data.SalinityOfWater}
+                                                        showPercentageSymbol={false}
+                                                    />
 
-                                                <h6>Suyun duzluluğu</h6>
-                                            </Col>
-                                            <Col lg={2} className="text-center">
-                                                <Circle
-                                                    animate={true}
-                                                    animationDuration="1s"
-                                                    responsive={true}
-                                                    progress={data === null ? 0 : data.WaterTemperature}
-                                                    progressColor="#d92027"
-                                                    showPercentageSymbol={false}
-                                                />
+                                                    <h6>Suyun duzluluğu</h6>
+                                                </Col>
+                                                <Col lg={3} className="text-center">
+                                                    <Circle
+                                                        animate={true}
+                                                        animationDuration="1s"
+                                                        responsive={true}
+                                                        progress={data === null ? 0 : data.WaterTemperature}
+                                                        progressColor="#d92027"
+                                                        showPercentageSymbol={false}
+                                                    />
 
-                                                <h6>Suyun temperaturu</h6>
-                                            </Col>
-                                            <Col lg={6}>
-                                                <div className="p-3">
-                                                    Suyun neye yararliligi haqda melumatin oldugu yer
+                                                    <h6>Suyun temperaturu</h6>
+                                                </Col>
+                                            </Row>
+                                        </div>
+                                    </Col>
+                                    <Col lg={5} className="pl-0">
+                                        <Row>
+                                            <Col lg={12}>
+
+                                                <div className="big-box big-box-2">
+                                                    <div className="big-header ">
+                                                        <h6>Suyun yararlılığı haqqında Məlumat</h6>
+                                                    </div>
                                                 </div>
                                             </Col>
                                         </Row>
@@ -79,7 +98,7 @@ function PageOne(props) {
 
                         </div>
                     </Col>
-                    <Col lg={2} className="mb-2">
+                    <Col lg={2} className="mb-2 bg-white big-box mt-3">
                         <h6>Cihazın yerləşmə nöqtəsi</h6>
                         <div style={{ height: "150px" }} className="map w-100">
                             <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.4463740276674!2d49.920235515399455!3d40.53172637935183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDMxJzU0LjIiTiA0OcKwNTUnMjAuNyJF!5e0!3m2!1sen!2s!4v1593886057478!5m2!1sen!2s" frameBorder="0" style={{ width: "100%", height: "100%", border: 0 }} allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
