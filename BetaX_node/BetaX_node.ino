@@ -5,15 +5,17 @@
 #include <DallasTemperature.h>
 #include <OneWire.h>
 
-#define DHTPIN 2
+#define DHTPIN 7
 #define DHTTYPE DHT11   
-#define trigPin 9
-#define echoPin 10
-#define SalinityPin A0 //duzluluq olcmek uchun pin 
-#define BlurringPin A1 //suyun bulaniqliq olcmek uchun pin 
+#define trigPin 5
+#define echoPin 6
+#define SalinityPin A1 //duzluluq olcmek uchun pin 
+#define BlurringPin A0 //suyun bulaniqliq olcmek uchun pin 
+
+#define ONE_WIRE_BUS 4
 
 float humidity = 0;
-float temperature = 0;
+float waterTemperature = 0;
 float airTemperature = 0;
 
 int distance = 0;
@@ -21,20 +23,28 @@ int duration = 0;
 int salinityOfWater = 0;
 int blurringOfWater = 0;
 
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
 DHT dht(DHTPIN, DHTTYPE);
+
 void setup() {
    Serial.begin(9600);
    dht.begin();
+    sensors.begin();
    pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
    pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-   if (!LoRa.begin(915E6)) {
+   if (!LoRa.begin(868E6)) {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
 }
 void readDHT(){
    humidity = dht.readHumidity();
-   temperature = dht.readTemperature();// Read temperature as Celsius (the default)
+   airTemperature = dht.readTemperature();// Read temperature as Celsius (the default)
+}
+void readDallas(){
+sensors.requestTemperatures(); 
+waterTemperature = sensors.getTempCByIndex(0);
 }
 int readWaterLevel(){
 digitalWrite(trigPin, LOW);
@@ -58,8 +68,10 @@ int ReadBlurringOfWater(){
  return blurringOfWater;
 }
 void testSensors(){//only for debug
- Serial.print("Temperatur: ");
- Serial.print(temperature);
+ Serial.print("Hava Temperatur: ");
+ Serial.print(airTemperature);
+ Serial.print("Su Temperatur: ");
+ Serial.print(waterTemperature);
  Serial.print("Humidity: ");
  Serial.print(humidity);
  Serial.print("Derinlik: ");
@@ -73,9 +85,12 @@ void testSensors(){//only for debug
 void sendLora(){
 LoRa.beginPacket();
 LoRa.print('#');
-LoRa.print('w');
- LoRa.print(temperature);
+LoRa.print('A');
+ LoRa.print(airTemperature);
  LoRa.print(",");
+ LoRa.print('W');
+  LoRa.print(waterTemperature);
+  LoRa.print(",");
  LoRa.print('H');
  LoRa.print(humidity);
  LoRa.print(",");
@@ -100,5 +115,6 @@ void readSensors(){
 void loop() {
 readSensors();
 testSensors();
+readDallas();
 sendLora();
 }
