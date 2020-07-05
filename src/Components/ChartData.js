@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactApexChart from "react-apexcharts"
 
-
-
 function DataChart(props) {
-
 
     let state = {
         series: [{

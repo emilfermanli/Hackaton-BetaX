@@ -51,12 +51,15 @@ a {
   height: 100vh;
 }
 
-.apexcharts-toolbar {
-  display: none;
-}
-
 #chart svg {
   height: 400px;
+}
+
+.apexcharts-toolbar {
+  display: none !important;
+}
+.apexcharts-toolbar div {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
