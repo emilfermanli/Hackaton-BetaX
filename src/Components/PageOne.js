@@ -10,15 +10,15 @@ function PageOne(props) {
 
     const { data } = props
 
+
+    console.log(data)
+
     return (
         <div>
             <div className="header text-white">
-                <Container fluid={true}>
-                    <div className="d-flex align-items-center justify-content-evenly">
-                        <img src={logo} height="30" alt="logo" />
-                        <h5>BetaX</h5>
-                    </div>
-                </Container>
+                <div className="d-flex h-100 align-items-center justify-content-evenly">
+                    <h5>BetaX</h5>
+                </div>
             </div>
             <Container fluid={true}>
                 <Row className="pt-3">
@@ -89,6 +89,9 @@ function PageOne(props) {
                                                     <div className="big-header ">
                                                         <h6>Suyun yararlılığı haqqında Məlumat</h6>
                                                     </div>
+                                                    <div>
+                                                        test
+                                                    </div>
                                                 </div>
                                             </Col>
                                         </Row>
@@ -98,8 +101,10 @@ function PageOne(props) {
 
                         </div>
                     </Col>
-                    <Col lg={2} className="mb-2 bg-white big-box mt-3">
-                        <h6>Cihazın yerləşmə nöqtəsi</h6>
+                    <Col lg={2} style={{ height: "auto" }} className="mb-2 bg-white big-box mt-3">
+                        <div className="big-header pl-0 pr-0 pt-2 pb-2">
+                            <h6>Cihazın yerləşmə nöqtəsi</h6>
+                        </div>
                         <div style={{ height: "150px" }} className="map w-100">
                             <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.4463740276674!2d49.920235515399455!3d40.53172637935183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDMxJzU0LjIiTiA0OcKwNTUnMjAuNyJF!5e0!3m2!1sen!2s!4v1593886057478!5m2!1sen!2s" frameBorder="0" style={{ width: "100%", height: "100%", border: 0 }} allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
                         </div>

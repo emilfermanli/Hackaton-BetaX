@@ -48,7 +48,7 @@ function DataChart(props) {
                 categories: [
                     'Suyun səviyyəsi',
                     'Axın sürəti',
-                    'Suyun xüsusi keçiriciliyi',
+                    'Suyun xüsusi keçiriciliyi - μS/cm',
                     'Həll edilmiş oksigenin miqdarı ',
                     'Bulanlıqlıq',
                     'Fikosinin',
