@@ -14,6 +14,7 @@ function App() {
         }
         socket.onmessage = (event) => {
             setData(JSON.parse(event.data))
+            console.log(JSON.parse(event.data))
         }
 
         socket.onerror = (error) => {

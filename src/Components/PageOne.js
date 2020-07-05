@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { Container, Row, Col } from "reactstrap"
 import ApexChart from "./Chart"
@@ -16,6 +16,8 @@ function PageOne(props) {
         watch: d.getHours() + ":" + d.getMinutes()
     }
     const [state] = useState([date])
+
+    let num = data === null ? 0 : parseInt(data.WaterPermeability)
 
 
     return (
@@ -92,18 +94,15 @@ function PageOne(props) {
 
                                                 <div className="big-box big-box-2">
                                                     <div className="big-header ">
-                                                        <h6>Suyun yararlılığı haqqında Məlumat</h6>
+                                                        <h6>Suyun yararlılığı haqqında məlumat</h6>
                                                     </div>
                                                     <div>
                                                         {
-                                                            // data.WaterPermeability === null ? "Cihazı işə salın" :
-                                                            //     parseInt(data.WaterPermeability) === 1 ?
-                                                            //         <ul>
-                                                            //             <li>{"İnsanlar üçün içməli su"}</li>
-                                                            //             <li>{"Əsasən suvarma üçün yaxşıdır,"}</li>
-                                                            //         </ul> : parseInt(data.WaterPermeability) <= 3 > 1 ?
-                                                            //             "test"
-
+                                                            (num > 2) && (num < 4) ?
+                                                                <ol>
+                                                                    <li>salam</li>
+                                                                </ol> :
+                                                                console.log("test false")
                                                         }
                                                     </div>
                                                 </div>
