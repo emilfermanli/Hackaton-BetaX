@@ -47,10 +47,10 @@ function DataChart(props) {
                 },
                 categories: [
                     'Suyun səviyyəsi-m',
-                    'Axın sürəti - m/d',
+                    'Axın sürəti - l/d',
                     'Suyun xüsusi keçiriciliyi - μS/cm',
                     'Həll edilmiş oksigenin miqdarı - mg/l',
-                    'Havanın tempraturu - c',
+                    'Havanın tempraturu - C',
                     'Fikosinin - mg/l',
                     'Asılmış bərk maddələr (SS) - mg/l',
                     'Ammonyak - mg/l',

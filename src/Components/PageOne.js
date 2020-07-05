@@ -69,8 +69,7 @@ function PageOne(props) {
                                                         progress={data === null ? 0 : data.SalinityOfWater}
                                                         showPercentageSymbol={false}
                                                     />
-
-                                                    <h6>Suyun duzluluğu</h6>
+                                                    <h6>Suyun duzluluğu (mg/l)</h6>
                                                 </Col>
                                                 <Col lg={3} className="text-center">
                                                     <Circle
