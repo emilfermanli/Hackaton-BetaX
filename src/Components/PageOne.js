@@ -95,9 +95,13 @@ function PageOne(props) {
                                                     <div className="big-header ">
                                                         <h6>Suyun yararlılığı haqqında məlumat</h6>
                                                     </div>
-                                                    <div className="pl-4 pr-4 pt-2">
-                                                        <p>Suyun keyfiyyətini bilmək bizə ilk öncə onun nəyə yararlı olması haqqında məlumat verir.  Suyun keyfiyyətini bilib biz onun suvarma üçün yaxud da içməyə yararlı ya da yararsız olmasını bilə bilərik. Məsələn  şor su suvarma üçün  eyni zamanda da içmək üçün yararsız hesab olunur. Tərkibində az yod olan, çirkli, zərərli bakteriyalar olan, axımı olmayan su içmək üçün yararsız hesab olunur.</p>
+                                                    <div className="pl-4 pr-4">
+                                                        <p className="m-0">Suyun keyfiyyətini bilmək bizə ilk öncə onun nəyə yararlı olması haqqında məlumat verir.  Suyun keyfiyyətini bilib biz onun suvarma üçün yaxud da içməyə yararlı ya da yararsız olmasını bilə bilərik. Məsələn  şor su suvarma üçün  eyni zamanda da içmək üçün yararsız hesab olunur. Tərkibində az yod olan, çirkli, zərərli bakteriyalar olan, axımı olmayan su içmək üçün yararsız hesab olunur.</p>
+                                                        <div className="alert mt-1 text-center text-white">
+                                                            <h6>Su içmək üçün yararlıdır</h6>
+                                                        </div>
                                                     </div>
+
                                                 </div>
                                             </Col>
                                         </Row>
