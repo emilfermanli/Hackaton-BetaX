@@ -8,7 +8,7 @@ function DataChart(props) {
             name: 'Nəticə',
             data: [
                 props.data === null ? 0 : props.data.WaterLevel,
-                props.data === null ? 0 : props.data.FlowRate,
+                props.data === null ? 0 : props.data.SalinityOfWater,
                 props.data === null ? 0 : props.data.WaterPermeability,
                 props.data === null ? 0 : props.data.WaterOxygen,
                 props.data === null ? 0 : props.data.Sodium,
@@ -50,7 +50,7 @@ function DataChart(props) {
                     'Axın sürəti - m/d',
                     'Suyun xüsusi keçiriciliyi - μS/cm',
                     'Həll edilmiş oksigenin miqdarı - mg/l',
-                    'Havanın tempraturu fno - mg/l',
+                    'Havanın tempraturu - c',
                     'Fikosinin - mg/l',
                     'Asılmış bərk maddələr (SS) - mg/l',
                     'Ammonyak - mg/l',

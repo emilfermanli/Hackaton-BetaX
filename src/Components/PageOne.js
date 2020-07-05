@@ -17,7 +17,6 @@ function PageOne(props) {
     }
     const [state] = useState([date])
 
-    let num = data === null ? 0 : parseInt(data.WaterPermeability)
 
 
     return (
