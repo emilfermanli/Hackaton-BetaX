@@ -58,14 +58,14 @@ function ApexChart(props) {
     let state = {
 
         series: [
-            props.data.Nitrite === null ? 0 : props.data.Nitrite,
-            props.data.Fikosin === null ? 0 : props.data.Fikosin,
-            props.data.Nitrate === null ? 0 : props.data.Nitrate,
-            props.data.Chlorophyll === null ? 0 : props.data.Chlorophyll,
-            props.data.Sulfate === null ? 0 : props.data.Sulfate,
-            props.data.No3 === null ? 0 : props.data.No3,
-            props.data.Sodium === null ? 0 : props.data.Sodium,
-            props.data.Alkaline === null ? 0 : props.data.Alkaline
+            props.data === null ? 0 : props.data.Nitrite,
+            props.data === null ? 0 : props.data.Fikosin,
+            props.data === null ? 0 : props.data.Nitrate,
+            props.data === null ? 0 : props.data.Chlorophyll,
+            props.data === null ? 0 : props.data.Sulfate,
+            props.data === null ? 0 : props.data.No3,
+            props.data === null ? 0 : props.data.Sodium,
+            props.data === null ? 0 : props.data.Alkaline
         ],
         options: {
             chart: {
