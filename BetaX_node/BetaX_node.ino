@@ -2,6 +2,8 @@
 #include <SPI.h>
 #include <DHT.h>
 #include <LoRa.h>
+#include <DallasTemperature.h>
+#include <OneWire.h>
 
 #define DHTPIN 2
 #define DHTTYPE DHT11   
@@ -12,6 +14,7 @@
 
 float humidity = 0;
 float temperature = 0;
+float airTemperature = 0;
 
 int distance = 0;
 int duration = 0;
@@ -68,15 +71,21 @@ void testSensors(){//only for debug
  Serial.println();
 }
 void sendLora(){
-  LoRa.beginPacket();
+LoRa.beginPacket();
+LoRa.print('#');
+LoRa.print('w');
  LoRa.print(temperature);
  LoRa.print(",");
+ LoRa.print('H');
  LoRa.print(humidity);
  LoRa.print(",");
+ LoRa.print('L');
  LoRa.print(readWaterLevel());
  LoRa.print(",");
+ LoRa.print('B');
  LoRa.print(blurringOfWater);
  LoRa.print(",");
+  LoRa.print('S');
  LoRa.print(salinityOfWater);
  LoRa.print(",");
  LoRa.println();
