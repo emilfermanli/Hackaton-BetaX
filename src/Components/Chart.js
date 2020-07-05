@@ -56,7 +56,6 @@ import ReactApexChart from "react-apexcharts"
 function ApexChart(props) {
 
     let state = {
-
         series: [
             props.data === null ? 0 : props.data.Nitrite,
             props.data === null ? 0 : props.data.Fikosin,
@@ -86,7 +85,19 @@ function ApexChart(props) {
             }]
         },
 
-    };
+    }
+
+    if (props.data === null) {
+        console.log("data yoxdu")
+    } else {
+        console.log("data var")
+        console.log(props.data.Nitrite)
+    }
+
+    console.log(state)
+    console.log(state.options)
+    console.log(state.series)
+
     return (
         <div id="chart">
             <ReactApexChart options={state.options} series={state.series} type="pie" width={380} />
